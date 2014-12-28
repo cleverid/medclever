@@ -1,7 +1,6 @@
 <?php
+use frontend\widgets\MenuSide\MenuSide;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\widgets\Alert;
@@ -33,7 +32,7 @@ AppAsset::register($this);
     <div class="wrap">
         <div class="row">
             <aside class="col-md-3">
-                menu
+                <?= MenuSide::widget([])?>
             </aside>
             <section class="col-md-9">
                 content
