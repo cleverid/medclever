@@ -29,7 +29,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            kI14hTEce5lP:
+            TqULtEx3vfAW:
                 owner: www-data
                 group: www-data
                 source: ./
@@ -68,6 +68,9 @@ users_groups:
     install: '1'
     groups: {  }
     users: {  }
+cron:
+    install: '1'
+    jobs: {  }
 firewall:
     install: '1'
     rules: null
@@ -83,32 +86,50 @@ apache:
     modules:
         - rewrite
     vhosts:
-        8idvf6kjvscb:
+        kt1greamn62l:
             servername: physiolab.dev
             docroot: /var/www/physiolab.ru/frontend/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
-            override:
-                - All
-            options:
-                - Indexes
-                - FollowSymLinks
-                - MultiViews
+            directories:
+                pf7liw5qrmb4:
+                    provider: directory
+                    path: /var/www/physiolab.ru/frontend/web
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - all
+                        - granted
+                    custom_fragment: ''
             engine: php
             custom_fragment: ''
             ssl_cert: ''
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        uxiq0ihehhqu:
+        42z5omt9eo8c:
             servername: admin.physiolab.dev
             docroot: /var/www/physiolab.ru/backend/web
             port: '80'
-            options:
-                - Indexes
-                - FollowSymLinks
-                - MultiViews
+            directories:
+                7qmfhomnzg0p:
+                    provider: directory
+                    path: /var/www/physiolab.ru/backend/web
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - all
+                        - granted
+                    custom_fragment: ''
             engine: php
             custom_fragment: ''
             ssl_cert: ''
@@ -124,7 +145,7 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        zrge8k5gwsyi:
+        akvhn4ginros:
             proxy: ''
             server_name: awesome.dev
             server_aliases:
@@ -160,6 +181,7 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
+        short_open_tag: '1'
     timezone: Europe/Moscow
     mod_php: '1'
 hhvm:
@@ -194,7 +216,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        TD0R7ENUhKy9:
+        fSQFduzntvvX:
             version: ''
 nodejs:
     install: '0'
@@ -203,7 +225,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        fte6fayWJ0l2:
+        pY4IpH9JT3lD:
             version: ''
 mysql:
     install: '1'
@@ -211,7 +233,7 @@ mysql:
     root_password: root
     adminer: '1'
     databases:
-        pPzCWtJFQMR0:
+        epPWZj6YpFbF:
             grant:
                 - ALL
             name: physiolab
@@ -237,7 +259,7 @@ mariadb:
     version: '10.0'
 sqlite:
     install: '1'
-    adminer: '0'
+    adminer: 0
     databases: {  }
 mongodb:
     install: '0'
