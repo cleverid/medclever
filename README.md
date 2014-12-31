@@ -16,15 +16,14 @@ composer update
 php init --env=Production --overwrite=All
 php yii migrate
 ```
-Site will be available on 192.168.100.101 
+Site will be available on 192.168.100.101 or physiolab.dev, admin.physiolab.dev 
 
-or physiolab.dev, admin.physiolab.dev (add to hosts file the following lines
- 
+add to hosts file the following lines
+
         192.168.100.101 physiolab.dev
-        
+
         192.168.100.101 admin.physiolab.dev
         
-    )
 
 DIRECTORY STRUCTURE
 -------------------
