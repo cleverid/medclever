@@ -1,3 +1,8 @@
+REQUIREMENTS
+------------
+Shoud be installed virtualbox and vagrant
+The minimum requirement by this application template that your Web server supports PHP 5.4.0.
+
 INSTALLATION
 ------------
 ```
@@ -10,7 +15,7 @@ composer update
 php init --env=Production --overwrite=All
 php yii migrate
 ```
-site will be available on 192.168.100.101 
+Site will be available on 192.168.100.101 
 or physiolab.dev, admin.physiolab.dev (add to hosts file the following lines 
         192.168.100.101 physiolab.dev
         192.168.100.101 admin.physiolab.dev
@@ -52,8 +57,3 @@ environments/            contains environment-based overrides
 tests                    contains various tests for the advanced application
     codeception/         contains tests developed with Codeception PHP Testing Framework
 ```
-
-REQUIREMENTS
-------------
-
-The minimum requirement by this application template that your Web server supports PHP 5.4.0.
