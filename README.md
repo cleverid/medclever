@@ -19,10 +19,10 @@ php yii migrate
 Site will be available on 192.168.100.101 or physiolab.dev, admin.physiolab.dev 
 
 add to hosts file the following lines
-
-        192.168.100.101 physiolab.dev
-
-        192.168.100.101 admin.physiolab.dev
+```
+192.168.100.101 physiolab.dev
+192.168.100.101 admin.physiolab.dev
+```
         
 
 DIRECTORY STRUCTURE
