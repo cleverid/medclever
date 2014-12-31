@@ -3,13 +3,18 @@ INSTALLATION
 ```
 git clone https://eawapownikov@bitbucket.org/eawapownikov/physiolab.ru.git
 cd physiolab.ru
-composer update
 vagrant up
 vagrant ssh
 cd /var/www/physiolab.ru
+composer update
 php init --env=Production --overwrite=All
 php yii migrate
 ```
+site will be available on 192.168.100.101 
+or physiolab.dev, admin.physiolab.dev (add to hosts file the following lines 
+        192.168.100.101 physiolab.dev
+        192.168.100.101 admin.physiolab.dev
+    )
 
 DIRECTORY STRUCTURE
 -------------------
