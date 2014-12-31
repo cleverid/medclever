@@ -1,6 +1,6 @@
 REQUIREMENTS
 ------------
-Shoud be installed virtualbox and vagrant
+Shoud be installed [virtualbox](https://www.virtualbox.org/) and [vagrant](https://www.vagrantup.com/)
 
 The minimum requirement by this application template that your Web server supports PHP 5.4.0.
 
