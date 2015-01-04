@@ -18,8 +18,8 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="icon" type="image/png" href="image/favicon_16х16.png" />
-    <link rel="apple-touch-icon" href="image/favicon_57х57.png"/>
+    <link rel="icon" type="image/png" href="/image/favicon_16х16.png" />
+    <link rel="apple-touch-icon" href="/image/favicon_57х57.png"/>
     <?php $this->head() ?>
 </head>
 <body>

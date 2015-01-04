@@ -20,6 +20,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'rubric/<url>' => 'rubric/view',
                 '<controller>/<action>' => '<controller>/<action>',
             ]
         ],

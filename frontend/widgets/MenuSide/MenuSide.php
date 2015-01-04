@@ -9,13 +9,27 @@
 namespace frontend\widgets\MenuSide;
 
 
+use common\models\Rubric;
+
 class MenuSide extends \yii\base\Widget {
 
     public function init() {
     }
 
     public function run() {
-        return $this->render('view', ['test' => 'test']);
+
+        $items = [];
+        /** @var Rubric[] $rubrics */
+        $rubrics = Rubric::find()->all();
+        foreach($rubrics as $rubric) {
+            $items[] = [
+                "name" => $rubric->name,
+                "url" => $rubric->getUrl(),
+                "active" => $rubric->isActiveByUrl(\Yii::$app->request->url),
+            ];
+        }
+
+        return $this->render('view', ['items' => $items]);
     }
 
 }
