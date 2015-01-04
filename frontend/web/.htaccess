@@ -1,7 +1,10 @@
-RewriteEngine on
+# prevent directory listings
+Options -Indexes
+IndexIgnore */*
 
-# If a directory or a file exists, use it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-# Otherwise forward it to index.php
-RewriteRule . index.php
+# follow symbolic links
+Options FollowSymlinks
+RewriteEngine on
+RewriteRule ^admin(/.+)?$ /backend/web/$1 [L,PT]
+RewriteRule ^(admin)/$ /$1 [L,R=301]
+RewriteRule ^(.+)?$ /frontend/web/$1
