@@ -29,7 +29,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            TqULtEx3vfAW:
+            AtTx5c341vLa:
                 owner: www-data
                 group: www-data
                 source: ./
@@ -75,7 +75,7 @@ firewall:
     install: '1'
     rules: null
 apache:
-    install: '1'
+    install: '0'
     settings:
         user: www-data
         group: www-data
@@ -86,14 +86,14 @@ apache:
     modules:
         - rewrite
     vhosts:
-        kt1greamn62l:
+        gbbndpqsxqdh:
             servername: physiolab.dev
             docroot: /var/www/physiolab.ru/frontend/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
             directories:
-                pf7liw5qrmb4:
+                eqrwtzfwxexl:
                     provider: directory
                     path: /var/www/physiolab.ru/frontend/web
                     options:
@@ -112,12 +112,12 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        42z5omt9eo8c:
+        5hciwf2mln7x:
             servername: admin.physiolab.dev
             docroot: /var/www/physiolab.ru/backend/web
             port: '80'
             directories:
-                7qmfhomnzg0p:
+                tsm23xjqfnar:
                     provider: directory
                     path: /var/www/physiolab.ru/backend/web
                     options:
@@ -138,19 +138,17 @@ apache:
             ssl_certs_dir: ''
     mod_pagespeed: 0
 nginx:
-    install: '0'
+    install: '1'
     settings:
         default_vhost: 1
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        akvhn4ginros:
+        tnkmlnsijsg9:
             proxy: ''
-            server_name: awesome.dev
-            server_aliases:
-                - www.awesome.dev
-            www_root: /var/www/awesome
+            server_name: physiolab.dev
+            www_root: /var/www/physiolab.ru/frontend/web/
             listen_port: '80'
             location: \.php$
             index_files:
@@ -160,7 +158,21 @@ nginx:
             envvars:
                 - 'APP_ENV dev'
             engine: php
-            client_max_body_size: 1m
+            client_max_body_size: 10m
+            ssl_cert: ''
+            ssl_key: ''
+        xd31zsjfb11o:
+            proxy: ''
+            server_name: admin.physiolab.dev
+            www_root: /var/www/physiolab.ru/backend/web/
+            listen_port: '80'
+            location: \.php$
+            index_files:
+                - index.html
+                - index.htm
+                - index.php
+            engine: php
+            client_max_body_size: 10m
             ssl_cert: ''
             ssl_key: ''
 php:
@@ -183,7 +195,7 @@ php:
         session.save_path: /var/lib/php/session
         short_open_tag: '1'
     timezone: Europe/Moscow
-    mod_php: '1'
+    mod_php: 0
 hhvm:
     install: '0'
     nightly: 0
@@ -216,7 +228,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        fSQFduzntvvX:
+        Whlz5pSAR83l:
             version: ''
 nodejs:
     install: '0'
@@ -225,7 +237,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        pY4IpH9JT3lD:
+        UuCmNpsGRKML:
             version: ''
 mysql:
     install: '1'
@@ -233,14 +245,14 @@ mysql:
     root_password: root
     adminer: '1'
     databases:
-        epPWZj6YpFbF:
+        jwqqBCccVmmn:
             grant:
                 - ALL
             name: physiolab
             host: localhost
             user: physiolab
             password: physiolab
-            sql_file: /var/www/physiolab.ru/sql/physiolab.sql
+            sql_file: /var/www/physiolab.ru/data/physiolab.sql
 postgresql:
     install: '0'
     settings:
