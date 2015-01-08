@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cea7d8284021060550e1fd14b9fa178d",
+    "hash": "c8a68d51a80efc3bd7a953cccef71a4a",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -314,6 +314,42 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "letyii/yii2-tinymce",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/letyii/yii2-tinymce.git",
+                "reference": "75a7a500ae2e7e3787f5621bd1aeed7d23540890"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/letyii/yii2-tinymce/zipball/75a7a500ae2e7e3787f5621bd1aeed7d23540890",
+                "reference": "75a7a500ae2e7e3787f5621bd1aeed7d23540890",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "yiisoft/yii2": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "letyii\\tinymce\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "TinyMce for yii2 textarea",
+            "homepage": "https://github.com/letyii/yii2-tinymce",
+            "keywords": [
+                "tinymce",
+                "yii2"
+            ],
+            "time": "2014-05-18 14:45:10"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -901,7 +937,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "letyii/yii2-tinymce": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
