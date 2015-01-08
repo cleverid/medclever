@@ -16,7 +16,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->widget(letyii\tinymce\Tinymce::className(), [
+        'options' => [
+            'id' => 'description'.uniqid(),
+        ],
+        'configs' => [
+            'language' => 'ru',
+            'menubar' => false,
+            'plugins' => ["code"],
+            'toolbar' => [
+                "undo redo | bold italic| link image | alignleft aligncenter alignright | styleselect | code"
+            ],
+        ],
+    ]) ?>
 
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => 255]) ?>
 
