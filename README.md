@@ -18,7 +18,7 @@ php init --env=Production --overwrite=All
     php init --env=Development --overwrite=All
 php yii migrate
 ```
-Site will be available on 192.168.100.101 or [physiolab.dev](physiolab.dev), [admin.physiolab.dev](admin.physiolab.dev)
+Site will be available on 192.168.100.101 or [physiolab.dev](http://physiolab.dev), [admin.physiolab.dev](http://admin.physiolab.dev)
 
 add to hosts file the following lines
 ```
@@ -26,7 +26,7 @@ add to hosts file the following lines
 192.168.100.101 admin.physiolab.dev
 ```
 
-Data base management system available on [http://192.168.100.101/adminer](http://192.168.100.101/adminer)
+Data base management system available on [192.168.100.101/adminer](http://192.168.100.101/adminer)
         
 
 DIRECTORY STRUCTURE
