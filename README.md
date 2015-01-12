@@ -14,9 +14,13 @@ vagrant ssh
 cd /var/www/physiolab.ru
 composer update
 php init --env=Production --overwrite=All
+    or 
+php init --env=Development --overwrite=All
 php yii migrate
 ```
-Site will be available on 192.168.100.101 or physiolab.dev, admin.physiolab.dev 
+Site will be available on 192.168.100.101 or physiolab.dev, admin.physiolab.dev
+
+Data base management system available on http://192.168.100.101/adminer
 
 add to hosts file the following lines
 ```
