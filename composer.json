@@ -18,7 +18,8 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "letyii/yii2-tinymce": "dev-master"
+        "letyii/yii2-tinymce": "dev-master",
+        "kshatrov/yii2-closure-table-behavior": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
