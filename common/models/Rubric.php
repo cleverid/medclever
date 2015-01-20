@@ -3,6 +3,7 @@
 namespace common\models;
 
 use frontend\models\interfaces\ISEO;
+use valentinek\behaviors\ClosureTable;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
@@ -24,6 +25,13 @@ use yii\db\Expression;
  */
 class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
+
+    public $leaf;
+
+    public static function find()
+    {
+        return new CategoryQuery(static::className());
+    }
 
     public function getUrl() {
         return '/rubric/'.$this->url;
@@ -75,7 +83,11 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
                 'value' => new Expression("NOW()"),
-            ]
+            ],
+            [
+                'class' => ClosureTable::className(),
+                'tableName' => 'rubric_tree'
+            ],
         ];
     }
 

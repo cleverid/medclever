@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c8a68d51a80efc3bd7a953cccef71a4a",
+    "hash": "86f3772c3be3812397c2a15cd981de35",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
-            "version": "v3.3.1",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a"
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9a7e365c2c4360335d25246dac11afb1f577210a",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
                 "shasum": ""
             },
             "require": {
@@ -102,16 +102,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.1.55",
+            "version": "3.1.57",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "d90a0d180495635e8dd97a770e7ab8b3c4ee6d53"
+                "reference": "d180082aa1ba98c85f85b2c4eebbfa195fd25613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/d90a0d180495635e8dd97a770e7ab8b3c4ee6d53",
-                "reference": "d90a0d180495635e8dd97a770e7ab8b3c4ee6d53",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/d180082aa1ba98c85f85b2c4eebbfa195fd25613",
+                "reference": "d180082aa1ba98c85f85b2c4eebbfa195fd25613",
                 "shasum": ""
             },
             "require": {
@@ -314,6 +314,57 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "kshatrov/yii2-closure-table-behavior",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shatrovk/yii2-closure-table-behavior.git",
+                "reference": "64036d0c006a305071804675a65adbfc5cb15091"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shatrovk/yii2-closure-table-behavior/zipball/64036d0c006a305071804675a65adbfc5cb15091",
+                "reference": "64036d0c006a305071804675a65adbfc5cb15091",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "valentinek\\behaviors\\": "./src",
+                    "valentinek\\tests\\": "./tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Valentin Konusov",
+                    "email": "mail@valentinek.ru",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Kirill Shatrov",
+                    "email": "shatrov.kirill@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This extension allows you to get functional for closure table trees.",
+            "homepage": "https://github.com/BioSin/yii2-closure-table-behavior",
+            "keywords": [
+                "Behavior",
+                "closure table",
+                "extension",
+                "yii2"
+            ],
+            "time": "2014-12-16 14:09:37"
         },
         {
             "name": "letyii/yii2-tinymce",
@@ -938,7 +989,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "letyii/yii2-tinymce": 20
+        "letyii/yii2-tinymce": 20,
+        "kshatrov/yii2-closure-table-behavior": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
