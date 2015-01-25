@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use creocoder\nestedsets\NestedSetsBehavior;
 use frontend\models\interfaces\ISEO;
 use valentinek\behaviors\ClosureTable;
 use Yii;
@@ -22,16 +23,15 @@ use yii\db\Expression;
  * @property integer $active
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $lft
+ * @property integer $rgt
+ * @property integer $depth
  */
 class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
 
     public $leaf;
-
-    public static function find()
-    {
-        return new CategoryQuery(static::className());
-    }
+    public $parent;
 
     public function getUrl() {
         return '/rubric/'.$this->url;
@@ -64,7 +64,31 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
         return $this->meta_description;
     }
 
+    public function load($data, $formName = null) {
+        if(parent::load($data, $formName)) {
+            $scope = $formName === null ? $this->formName() : $formName;
+            $this->parent = isset($data[$scope]['parent'])
+                            ?$data[$scope]['parent']:null;
+
+            return true;
+        } else {
+            return false;
+        };
+    }
+
     // ========================================================================
+
+    public function transactions()
+    {
+        return [
+            self::SCENARIO_DEFAULT => self::OP_ALL,
+        ];
+    }
+
+    public static function find()
+    {
+        return new RubricQuery(get_called_class());
+    }
 
     /**
      * @inheritdoc
@@ -85,8 +109,8 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
                 'value' => new Expression("NOW()"),
             ],
             [
-                'class' => ClosureTable::className(),
-                'tableName' => 'rubric_tree'
+                'class' => NestedSetsBehavior::className(),
+                'treeAttribute' => 'tree',
             ],
         ];
     }
@@ -100,7 +124,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [['name', 'url'], 'required'],
             [['description', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['parent', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255]
         ];
     }

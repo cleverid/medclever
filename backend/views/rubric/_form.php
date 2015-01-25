@@ -1,6 +1,8 @@
 <?php
 
 use backend\widgets\Tinymce\Tinymce;
+use common\models\Rubric;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -16,6 +18,15 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'parent')->dropDownList(
+        ArrayHelper::map(Rubric::findOne(9)->children()->all(), 'id', function($i){
+            return str_repeat('- ',$i->depth) . $i->name;
+        }),
+        [
+            'prompt' => 'Корневая'
+        ]
+    ) ?>
 
     <?= $form->field($model, 'description_short')->widget(Tinymce::className(), []) ?>
 
