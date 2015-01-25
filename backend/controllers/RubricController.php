@@ -8,6 +8,7 @@ use common\models\RubricSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use creocoder\nestedsets\NestedSetsBehavior;
 
 /**
  * RubricController implements the CRUD actions for Rubric model.
@@ -62,8 +63,17 @@ class RubricController extends Controller
     {
         $model = new Rubric();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($parent = Rubric::findOne($model->parent)) {
+                $model->appendTo($parent);
+            } else {
+                $model->appendTo(Rubric::findOne(9));
+            }
+
+            if($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,7 +91,17 @@ class RubricController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        /** @var Rubric|NestedSetsBehavior $root */
+//        $root = Rubric::findOne(1);
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($parent = Rubric::findOne($model->parent)) {
+                $model->appendTo($parent);
+            } else {
+                $model->appendTo(Rubric::findOne(9));
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
