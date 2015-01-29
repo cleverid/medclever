@@ -20,7 +20,7 @@ class MenuSide extends \yii\base\Widget {
 
         $items = [];
         /** @var Rubric[] $rubrics */
-        $rubrics = Rubric::findOne(9)->children()->all();
+        $rubrics = Rubric::getRoot()->children()->all();
 
         foreach($rubrics as $rubric) {
             $items[] = [
