@@ -10,7 +10,7 @@ class m150120_092428_rubric_add_tree extends Migration
 
     public function init() {
         $this->columns = [
-            'tree' => Schema::TYPE_INTEGER,
+            'parent_id' => Schema::TYPE_INTEGER . ' NULL DEFAULT NULL',
             'lft' => Schema::TYPE_INTEGER . ' NOT NULL',
             'rgt' => Schema::TYPE_INTEGER . ' NOT NULL',
             'depth' => Schema::TYPE_INTEGER . ' NOT NULL',

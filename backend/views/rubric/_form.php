@@ -19,12 +19,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'parent')->dropDownList(
-        ArrayHelper::map(Rubric::findOne(9)->children()->all(), 'id', function($i){
+    <?= $form->field($model, 'parent_id')->dropDownList(
+        ArrayHelper::map(Rubric::getRoot()->children()->all(), 'id', function($i){
             return str_repeat('- ',$i->depth) . $i->name;
         }),
         [
-            'prompt' => 'Корневая'
+            'prompt' => 'Не указано'
         ]
     ) ?>
 
@@ -35,8 +35,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'meta_description')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'sort')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'active')->checkbox() ?>
 

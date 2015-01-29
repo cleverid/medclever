@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:html',
             'meta_title',
             'meta_description',
-            'sort',
             'active',
             'created_at',
             'updated_at',

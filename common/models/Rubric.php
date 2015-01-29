@@ -23,6 +23,7 @@ use yii\db\Expression;
  * @property integer $active
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $parent_id
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
@@ -31,7 +32,43 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
 
     public $leaf;
-    public $parent;
+    private static $_cRoot;
+
+    /**
+     * Возращает верхнего уровня элемент если его нет то создает
+     * @return Rubric
+     */
+    public static function getRoot() {
+        if(self::$_cRoot) {
+            return self::$_cRoot;
+        }
+
+        $root = self::find()->roots()->one();
+        if(!$root) {
+            $root = new Rubric();
+            $root->name = 'Рубрики';
+            $root->url = 'rubrics';
+            $root->active = 1;
+            $root->makeRoot();
+        }
+
+        return self::$_cRoot = $root;
+    }
+
+    /**
+     * Применяет древовидную структуру
+     */
+    public function applayRoot() {
+        if(empty($this->parent_id)) {
+            $this->parent_id = Rubric::getRoot()->id;
+        }
+
+        if($parent = Rubric::findOne($this->parent_id)) {
+            $this->appendTo($parent);
+        } else {
+            $this->appendTo(Rubric::getRoot());
+        }
+    }
 
     public function getUrl() {
         return '/rubric/'.$this->url;
@@ -62,18 +99,6 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      */
     public function getSeoDescription() {
         return $this->meta_description;
-    }
-
-    public function load($data, $formName = null) {
-        if(parent::load($data, $formName)) {
-            $scope = $formName === null ? $this->formName() : $formName;
-            $this->parent = isset($data[$scope]['parent'])
-                            ?$data[$scope]['parent']:null;
-
-            return true;
-        } else {
-            return false;
-        };
     }
 
     // ========================================================================
@@ -110,7 +135,6 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             ],
             [
                 'class' => NestedSetsBehavior::className(),
-                'treeAttribute' => 'tree',
             ],
         ];
     }
@@ -124,7 +148,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [['name', 'url'], 'required'],
             [['description', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
-            [['parent', 'created_at', 'updated_at'], 'safe'],
+            [['parent_id', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255]
         ];
     }
@@ -146,6 +170,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             'active' => 'Активность',
             'created_at' => 'Время создания',
             'updated_at' => 'Время обновления',
+            'parent_id' => 'Родитель',
         ];
     }
 

@@ -65,11 +65,7 @@ class RubricController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            if($parent = Rubric::findOne($model->parent)) {
-                $model->appendTo($parent);
-            } else {
-                $model->appendTo(Rubric::findOne(9));
-            }
+            $model->applayRoot();
 
             if($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -96,11 +92,7 @@ class RubricController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            if($parent = Rubric::findOne($model->parent)) {
-                $model->appendTo($parent);
-            } else {
-                $model->appendTo(Rubric::findOne(9));
-            }
+            $model->applayRoot();
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
