@@ -32,6 +32,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
 
     public $leaf;
+    public $after_id;
     private static $_cRoot;
 
     /**
@@ -63,10 +64,12 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             $this->parent_id = Rubric::getRoot()->id;
         }
 
-        if($parent = Rubric::findOne($this->parent_id)) {
-            $this->appendTo($parent);
+        if($after = Rubric::findOne($this->after_id)) {
+            $this->insertAfter($after);
+        } elseif($parent = Rubric::findOne($this->parent_id)) {
+            $this->prependTo($parent);
         } else {
-            $this->appendTo(Rubric::getRoot());
+            $this->prependTo(Rubric::getRoot());
         }
     }
 
@@ -102,6 +105,15 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
     }
 
     // ========================================================================
+
+    public function load($data, $formName = null) {
+        if(parent::load($data, $formName)) {
+            $this->applayRoot();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function transactions()
     {
@@ -148,7 +160,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [['name', 'url'], 'required'],
             [['description', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
-            [['parent_id', 'created_at', 'updated_at'], 'safe'],
+            [['parent_id', 'after_id', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255]
         ];
     }
@@ -170,7 +182,8 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             'active' => 'Активность',
             'created_at' => 'Время создания',
             'updated_at' => 'Время обновления',
-            'parent_id' => 'Родитель',
+            'parent_id' => 'Вложенность в',
+            'after_id' => 'После',
         ];
     }
 

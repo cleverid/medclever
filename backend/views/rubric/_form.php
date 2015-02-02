@@ -1,6 +1,7 @@
 <?php
 
 use backend\widgets\Tinymce\Tinymce;
+use backend\widgets\TreeInAfter\TreeInAfter;
 use common\models\Rubric;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -19,14 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'parent_id')->dropDownList(
-        ArrayHelper::map(Rubric::getRoot()->children()->all(), 'id', function($i){
-            return str_repeat('- ',$i->depth) . $i->name;
-        }),
-        [
-            'prompt' => 'Не указано'
-        ]
-    ) ?>
+    <?= $form->field($model, 'parent_id')->widget(TreeInAfter::className(), ['root' => Rubric::getRoot()]);?>
 
     <?= $form->field($model, 'description_short')->widget(Tinymce::className(), []) ?>
 

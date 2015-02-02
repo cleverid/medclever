@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\widgets\TreeInAfter\TreeInAfter;
 use Yii;
 use common\models\Rubric;
 use common\models\RubricSearch;
@@ -64,9 +65,6 @@ class RubricController extends Controller
         $model = new Rubric();
 
         if ($model->load(Yii::$app->request->post())) {
-
-            $model->applayRoot();
-
             if($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -87,13 +85,7 @@ class RubricController extends Controller
     {
         $model = $this->findModel($id);
 
-        /** @var Rubric|NestedSetsBehavior $root */
-//        $root = Rubric::findOne(1);
-
         if ($model->load(Yii::$app->request->post())) {
-
-            $model->applayRoot();
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -113,6 +105,34 @@ class RubricController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Обновление виджета для дерева
+     * @param $id
+     * @return bool
+     * @throws NotFoundHttpException
+     */
+    public function actionTree($id = null, $idWidget) {
+        if($id == null) {
+            $model = Rubric::getRoot();
+            $id = $model->id;
+        } else {
+            $model = $this->findModel($id);
+        }
+        if(!$model) return false;
+
+        $model->parent_id = $id;
+
+        $widget = new TreeInAfter([
+            'id' => $idWidget,
+            'root' => Rubric::getRoot(),
+            'model' => $model,
+            'name' => 'name',
+            'attribute' => 'parent_id',
+        ]);
+
+        echo $widget->run();
     }
 
     /**
