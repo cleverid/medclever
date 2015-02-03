@@ -106,15 +106,6 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
 
     // ========================================================================
 
-    public function load($data, $formName = null) {
-        if(parent::load($data, $formName)) {
-            $this->applayRoot();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function transactions()
     {
         return [
