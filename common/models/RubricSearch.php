@@ -45,11 +45,14 @@ class RubricSearch extends Rubric
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder'=>['lft'=>SORT_ASC]],
         ]);
 
+        $query->andWhere('id <> '.Rubric::getRoot()->id);
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
+
 
         $query->andFilterWhere([
             'id' => $this->id,

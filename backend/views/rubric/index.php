@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Rubric;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -26,7 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'name',
+            [
+                'attribute' => 'name',
+                'value' => function($model, $key, $index, $grid) use ($dataProvider) {
+                    /** @var GridView $grid */
+                    $prefix = '';
+                    if($dataProvider->getSort()->getAttributeOrder('lft') == SORT_ASC) {
+                        $prefix = str_repeat('. ', $model->depth - 1);
+                    }
+                    /** @var Rubric $model */
+                    return $prefix.$model->name;
+                }
+            ],
             'url:url',
             'description:html',
             'active',

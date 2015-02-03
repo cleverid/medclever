@@ -65,6 +65,9 @@ class RubricController extends Controller
         $model = new Rubric();
 
         if ($model->load(Yii::$app->request->post())) {
+
+            $model->applayRoot();
+
             if($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -86,6 +89,9 @@ class RubricController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
+
+            $model->applayRoot();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
