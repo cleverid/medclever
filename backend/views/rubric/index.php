@@ -39,7 +39,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $prefix.$model->name;
                 }
             ],
-            'url:url',
+            [
+                'attribute' => 'url',
+                'format' => 'raw',
+                'value' => function($model) {
+                    /** @var Rubric $model */
+                    return Html::a($model->url, $model->getUrl(true));
+                },
+            ],
             'description:html',
             'active',
              'created_at',
