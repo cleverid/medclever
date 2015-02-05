@@ -73,8 +73,18 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
         }
     }
 
-    public function getUrl() {
-        return '/rubric/'.$this->url;
+    /**
+     * @param bool $absolute
+     * @return string
+     */
+    public function getUrl($absolute = false) {
+        if($absolute) {
+            return  Yii::$app->params['shemaSite']
+                    .Yii::$app->params['domenSite']
+                    .'/rubric/'.$this->url;
+        } else {
+            return '/rubric/'.$this->url;
+        }
     }
 
     /**
