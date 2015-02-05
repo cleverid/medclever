@@ -56,6 +56,8 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
         return self::$_cRoot = $root;
     }
 
+    // ------------------------------------------------------------------------
+
     /**
      * Применяет древовидную структуру
      */
