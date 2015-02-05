@@ -15,4 +15,13 @@ class RubricQuery extends \yii\db\ActiveQuery
             NestedSetsQueryBehavior::className(),
         ];
     }
+
+    /**
+     * @param bool $state
+     * @return $this
+     */
+    public function active($state = true) {
+        $this->andWhere(['active' => $state]);
+        return $this;
+    }
 }
