@@ -162,8 +162,24 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [['description', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
             [['parent_id', 'after_id', 'created_at', 'updated_at'], 'safe'],
-            [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255]
+            [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255],
+            ['parent_id', 'validateParent', 'skipOnError' => false],
+            ['url', 'unique'],
         ];
+    }
+
+    public function validateParent($attribute, $params) {
+        if($this->parent_id == $this->id) {
+            $this->addError($attribute, 'Не может быть вложено само в себя');
+        }
+
+        if($chldren = $this->children()->all()) {
+            foreach($chldren as $child) {
+                if($child->id == $this->parent_id) {
+                    $this->addError($attribute, 'Не может быть вложено в собственное дерево');
+                }
+            }
+        }
     }
 
     /**

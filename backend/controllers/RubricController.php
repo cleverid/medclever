@@ -6,10 +6,11 @@ use backend\widgets\TreeInAfter\TreeInAfter;
 use Yii;
 use common\models\Rubric;
 use common\models\RubricSearch;
+use yii\bootstrap\ActiveForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use creocoder\nestedsets\NestedSetsBehavior;
+use yii\web\Response;
 
 /**
  * RubricController implements the CRUD actions for Rubric model.
@@ -64,6 +65,11 @@ class RubricController extends Controller
     {
         $model = new Rubric();
 
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post())) {
 
             $model->applayRoot();
@@ -87,6 +93,11 @@ class RubricController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
 
         if ($model->load(Yii::$app->request->post())) {
 

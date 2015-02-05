@@ -36,7 +36,7 @@ class TreeInAfter extends \yii\widgets\InputWidget {
         echo Html::activeDropDownList(
             $this->model, $this->parentAttr,
             ArrayHelper::map($this->root->children()->all(), 'id', function ($i) {
-                return str_repeat('. ', $i->depth) . $i->name;
+                return str_repeat('. ', $i->depth - 1) . $i->name;
             }),
             [
                 'class' => 'form-control',
