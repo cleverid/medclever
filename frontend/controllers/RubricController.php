@@ -24,9 +24,17 @@ class RubricController extends Controller {
 
         $this->setSeo($model);
 
-        return $this->render("view", [
-            'model' => $model
-        ]);
+        if(!$model->isLeaf()) {
+            $rubribs = $model->children()->all();
+            return $this->render("list", [
+                'model' => $model,
+                'rubribs' => $rubribs,
+            ]);
+        } else {
+            return $this->render("view", [
+                'model' => $model,
+            ]);
+        }
     }
 
 }
