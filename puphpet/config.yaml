@@ -231,8 +231,9 @@ ruby:
         Whlz5pSAR83l:
             version: ''
 nodejs:
-    install: '0'
-    npm_packages: {  }
+    install: '1'
+    npm_packages:
+        - gulp
 python:
     install: '1'
     packages: {  }

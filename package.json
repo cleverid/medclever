@@ -1,0 +1,29 @@
+{
+  "name": "physiolab.ru",
+  "version": "1.0.0",
+  "description": "REQUIREMENTS\r ------------\r Shoud be installed [virtualbox](https://www.virtualbox.org/) and [vagrant](https://www.vagrantup.com/)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp-minify-css": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.0.1",
+    "gulp-watch": "^4.2.4",
+    "notify-send": "^0.1.2"
+  },
+  "devDependencies": {
+    "gulp-stylus": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://eawapownikov@bitbucket.org/eawapownikov/physiolab.ru.git"
+  },
+  "author": "Eugen Shaposhnikov <eawapownikov@gmail.com>",
+  "license": "ISC"
+}
