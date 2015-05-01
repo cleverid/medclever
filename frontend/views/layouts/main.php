@@ -29,7 +29,12 @@ AppAsset::register($this);
 
         <header class="header">
             <div class="logo"></div>
-            <div class="search"></div>
+            <div class="search-box">
+                <form>
+                    <input class="search-input" type="text" placeholder="Что ищите?"/>
+                    <button class="btn-search"><i class="micon-search"></i></button>
+                </form>
+            </div>
         </header>
 
         <div class="column-left">

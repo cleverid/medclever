@@ -1,3 +1,16 @@
+.micon-search {
+  display: block;
+  background-image: url("./../image/sprite.png");
+  background-position: -28px 0px;
+  width: 28px;
+  height: 28px;
+}
+.micon-search:hover {
+  background-image: url("./../image/sprite.png");
+  background-position: 0px 0px;
+  width: 28px;
+  height: 28px;
+}
 html,
 body {
   margin: 0;
@@ -11,6 +24,10 @@ html {
 }
 body {
   background: url("./../image/bg-fon-line.png");
+}
+h1 {
+  color: #08599b;
+  font-size: 24px;
 }
 a {
   color: #afafaf;
@@ -40,12 +57,52 @@ a:hover {
   top: 70px;
   left: 20px;
 }
+.header .search-box {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 0;
+}
+.header .search-box .search-input,
+.header .search-box .btn-search {
+  transition: all 1s ease;
+}
+.header .search-box .search-input {
+  width: 250px;
+  height: 35px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  padding: 4px 8px;
+  font-size: 15px;
+  border: 1px solid #afafaf;
+  border-right: none;
+}
+.header .search-box .btn-search {
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background: none;
+  border: 1px solid #afafaf;
+  cursor: pointer;
+}
+.header .search-box.focus .search-input,
+.header .search-box.focus .btn-search,
+.header .search-box:hover .search-input,
+.header .search-box:hover .btn-search {
+  border-color: #08599b;
+}
 .column-left {
+  box-sizing: border-box;
   width: 300px;
   float: left;
+  border-right: 1px dashed #afafaf;
 }
 .column-center {
   width: 900px;
+  padding: 0 15px;
+  box-sizing: border-box;
   float: right;
 }
 .wrapper-content-foother {
@@ -54,7 +111,7 @@ a:hover {
 }
 .footer {
   background: url("./../image/bg-footer.png");
-  background-color: E8E8E8;
+  background-color: #e8e8e8;
   height: 100px;
   width: 1200px;
   margin-top: -100px;
@@ -64,16 +121,20 @@ a:hover {
 }
 .menu-side {
   font-size: 20px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  padding: 0 10px 0 20px;
 }
 .menu-side li {
   list-style-type: none;
+}
+.menu-side a {
+  transition: all 0.3s ease;
 }
 .menu-side .active a {
   color: #08599b;
 }
 .menu-side .depth0 {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 .menu-side .depth1 {
   font-size: 16px;
