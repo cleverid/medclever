@@ -1,10 +1,20 @@
 $widthPage = 1200px;
 $widthColumnLeft = 300px;
 $widthColumnCenter = $widthPage - $widthColumnLeft;
+$heightFooter = 100px;
 
-html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+$colorBlue = #08599b;
+$colorGray = #afafaf;
+$colorLink = $colorBlue;
+
+html, body { margin: 0; padding: 0; width: 100%; height: 100%;
+  font-family: Arial, Tahoma; }
 html { background: url("./../image/bg-fon.jpg") }
 body { background: url("./../image/bg-fon-line.png") }
+
+a { color: $colorGray; text-decoration: none; }
+a:hover { color: $colorBlue; text-decoration: underline; }
+
 .wrapper-content { width: $widthPage; min-height: 100%; margin: 0 auto; background-color: #ffffff; }
 .header { height: 240px; background: url("./../image/bg-header.png");
   position: relative; }
@@ -15,5 +25,18 @@ body { background: url("./../image/bg-fon-line.png") }
 .column-center { width: $widthColumnCenter; float: right; }
 .wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 .footer { background: url("./../image/bg-footer.png"); background-color: E8E8E8;
-  height: 100px; width: $widthPage; margin-top: -100px; }
-.footer-dummy { height: 100px; }
+  height: $heightFooter; width: $widthPage; margin-top: -($heightFooter); }
+.footer-dummy { height: $heightFooter; }
+
+.menu-side {
+  font-size: 20px;
+  margin-bottom: 5px;
+
+  & li { list-style-type: none; }
+  & .active a { color: $colorBlue; }
+  & .depth0 { margin-bottom: 4px; }
+  & .depth1 { font-size: 16px; margin-left: 25px; margin-bottom: 7px;
+      display: block; position: relative; }
+  & .depth1:before { content: "■ "; color: $colorBlue; position: absolute;
+      left: -15px; top: 0; font-size: 13px; }
+}
