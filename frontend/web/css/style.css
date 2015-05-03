@@ -32,6 +32,7 @@ h1 {
 a {
   color: #afafaf;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 a:hover {
   color: #08599b;
@@ -105,10 +106,6 @@ a:hover {
   box-sizing: border-box;
   float: right;
 }
-.wrapper-content-foother {
-  width: 1200px;
-  margin: 0 auto;
-}
 .footer {
   background: url("./../image/bg-footer.png");
   background-color: #e8e8e8;
@@ -119,6 +116,10 @@ a:hover {
 .footer-dummy {
   height: 100px;
 }
+.wrapper-content-foother {
+  width: 1200px;
+  margin: 0 auto;
+}
 .menu-side {
   font-size: 20px;
   margin-top: 20px;
@@ -126,9 +127,6 @@ a:hover {
 }
 .menu-side li {
   list-style-type: none;
-}
-.menu-side a {
-  transition: all 0.3s ease;
 }
 .menu-side .active a {
   color: #08599b;
@@ -150,4 +148,16 @@ a:hover {
   left: -15px;
   top: 0;
   font-size: 13px;
+}
+.btn {
+  display: inline-block;
+  border: 1px solid #afafaf;
+  padding: 5px;
+  transition: all 0.6s ease;
+}
+.btn:hover {
+  border-color: #08599b;
+}
+.rubric-item {
+  margin-top: 12px;
 }

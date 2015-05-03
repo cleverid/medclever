@@ -10,6 +10,6 @@
         <div class="item">
             <?=$rubrib->description_short?>
         </div>
-        <a href="<?=$rubrib->getUrl()?>">Читать дальше →</a>
+        <a href="<?=$rubrib->getUrl()?>" class="btn">Читать дальше →</a>
     </div>
 <?endforeach;?>

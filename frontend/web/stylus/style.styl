@@ -19,7 +19,7 @@ body { background: url("./../image/bg-fon-line.png") }
 
 h1 { color: $colorBlue; font-size: $fontH1; }
 
-a { color: $colorGray; text-decoration: none; }
+a { color: $colorGray; text-decoration: none; transition:color 0.3s ease; }
 a:hover { color: $colorBlue; text-decoration: underline; }
 
 .wrapper-content { width: $widthPage; min-height: 100%; margin: 0 auto; background-color: #ffffff; }
@@ -55,10 +55,10 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   border-right: 1px dashed $colorGray; }
 .column-center { width: $widthColumnCenter;padding: 0 15px; box-sizing: border-box;
    float: right;  }
-.wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 .footer { background: url("./../image/bg-footer.png"); background-color: #E8E8E8;
   height: $heightFooter; width: $widthPage; margin-top: -($heightFooter); }
 .footer-dummy { height: $heightFooter; }
+.wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 
 .menu-side {
   font-size: 20px;
@@ -66,7 +66,6 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   padding: 0 10px 0 20px;
 
   & li { list-style-type: none; }
-  & a { transition:all 0.3s ease; }
   & .active a { color: $colorBlue; }
   & .depth0 { margin-bottom: 10px; }
   & .depth1 { font-size: 16px; margin-left: 25px; margin-bottom: 7px;
@@ -74,3 +73,12 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   & .depth1:before { content: "■ "; color: $colorBlue; position: absolute;
       left: -15px; top: 0; font-size: 13px; }
 }
+
+.btn {
+  display: inline-block; border: 1px solid $colorGray; padding: 5px;
+  transition: all 0.6s ease;
+
+  &:hover { border-color: $colorBlue; }
+}
+
+.rubric-item { margin-top: 12px; }
