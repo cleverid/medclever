@@ -83,6 +83,8 @@ class MenuSide extends \yii\base\Widget {
         if($selected = $this->getSelectedItem()) {
             $this->rubricsSelectPath = $selected->parents()->all();
             array_unshift($this->rubricsSelectPath, $selected);
+        } else {
+            $this->rubricsSelectPath = array();
         }
 
         return $this->rubricsSelectPath;
