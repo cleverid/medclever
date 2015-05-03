@@ -41,7 +41,8 @@ gulp.task('sprite', function() {
 });
 
 gulp.task('watch', function(){
+    gulp.watch(folderImagesForSprite + "*.*", ['sprite']);
     gulp.watch(folderStylus + "*.*", ['style']);
 });
 
-gulp.task("default", ['style', 'watch']);
+gulp.task("default", ['sprite', 'style', 'watch']);
