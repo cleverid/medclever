@@ -8,4 +8,5 @@ return [
     // TODO[eugen] Move the admin area as a params
     'seoSuffix' => 'научно-исследовательская группа Физиолаб',
     'logoTagLine' => 'Научно-исследовательская группа',
+    'dateFormat' => 'dd MMMM yyyy',
 ];

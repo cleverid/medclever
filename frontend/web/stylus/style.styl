@@ -8,13 +8,17 @@ $heightFooter = 100px;
 
 $colorBlue = #08599b;
 $colorGray = #afafaf;
+$colorGrayText = #5f5f5f;
 $colorLink = $colorBlue;
 
 $fontH1 = 24px;
 
 html, body { margin: 0; padding: 0; width: 100%; height: 100%;
-  font-family: Arial, Tahoma; }
-html { background: url("./../image/bg-fon.jpg") }
+  font-family: Arial, Tahoma;
+  color: $colorGrayText;
+}
+  html * { color: $colorGrayText; }
+html { background: url("./../image/bg-fon.jpg"); }
 body { background: url("./../image/bg-fon-line.png") }
 
 h1 { color: $colorBlue; font-size: $fontH1; }
@@ -81,4 +85,31 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   &:hover { border-color: $colorBlue; }
 }
 
-.rubric-item { margin-top: 12px; }
+.rubric-item {
+  margin: 12px 0 30px 0;
+
+  &-title {
+    margin-bottom: 2px;
+    & * { font-size: 22px; color: darken($colorGrayText,  50%); }
+  }
+  &-text {
+    margin-bottom: 8px;
+    font-size: 18px;
+
+    & > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  $fontRubricInfo = 13px;
+  &-info {
+    font-size: $fontRubricInfo;
+    margin-bottom: 1px;
+    &>span { margin: 0 15px 0 0; }
+  }
+  &-filter {
+    font-size: $fontRubricInfo; margin-bottom: 5px;
+    & i { margin-right: 5px; }
+  }
+}
