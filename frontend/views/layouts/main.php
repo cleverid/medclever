@@ -28,7 +28,10 @@ AppAsset::register($this);
     <div class="wrapper-content">
 
         <header class="header">
-            <div class="logo"></div>
+            <a href="/"
+               alt="<?=Yii::$app->params['logoTagLine']?>">
+                <div class="logo"></div>
+            </a>
             <div class="search-box">
                 <form>
                     <input class="search-input" type="text" placeholder="Что ищите?"/>

@@ -7,4 +7,5 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     // TODO[eugen] Move the admin area as a params
     'seoSuffix' => 'научно-исследовательская группа Физиолаб',
+    'logoTagLine' => 'Научно-исследовательская группа',
 ];
