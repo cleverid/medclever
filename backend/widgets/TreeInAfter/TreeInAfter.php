@@ -15,6 +15,9 @@ use yii\web\View;
 
 class TreeInAfter extends \yii\widgets\InputWidget {
 
+    /**
+     * @var Rubric
+     */
     public $root;
     public $idName = 'id';
     public $parentAttr = 'parent_id';

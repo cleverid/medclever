@@ -4,9 +4,9 @@ namespace common\models;
 
 use creocoder\nestedsets\NestedSetsBehavior;
 use frontend\models\interfaces\ISEO;
-use valentinek\behaviors\ClosureTable;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
 use yii\db\Expression;
 
 /**
@@ -27,6 +27,7 @@ use yii\db\Expression;
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
+ * @method ActiveQuery children()
  */
 class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
