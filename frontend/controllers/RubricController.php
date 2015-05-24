@@ -23,7 +23,7 @@ class RubricController extends Controller {
     public function actionView($url) {
         $this->rubricCurrent = Rubric::find()->where(array('url' => $url))->one();
         if(!$this->rubricCurrent) {
-            throw new HttpException(404, "Страница не найдена");
+            $this->pageNotFound();
         }
 
         $this->setSeo($this->rubricCurrent);

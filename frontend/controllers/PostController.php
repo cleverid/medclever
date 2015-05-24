@@ -9,6 +9,9 @@ class PostController extends Controller
     public function actionView($url)
     {
         $post = Post::find()->active()->where(['url' => $url])->one();
+        if(!$post) {
+            $this->pageNotFound();
+        }
 
         $this->setSeo($post);
 
