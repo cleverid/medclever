@@ -17,6 +17,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'rubric/<url>' => 'rubric/view',
+                'post/<url>' => 'post/view',
                 '<controller>/<action>' => '<controller>/<action>',
             ]
         ],

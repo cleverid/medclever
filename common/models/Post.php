@@ -2,7 +2,9 @@
 
 namespace common\models;
 
+use frontend\models\interfaces\ISEO;
 use Yii;
+use yii\helpers\StringHelper;
 
 /**
  * This is the model class for table "{{%post}}".
@@ -24,8 +26,58 @@ use Yii;
  *
  * @property Rubric $rubric
  */
-class Post extends \yii\db\ActiveRecord
+class Post extends \yii\db\ActiveRecord implements  ISEO
 {
+
+    /**
+     * @param bool $absolute
+     * @return string
+     */
+    public function getUrl($absolute = false) {
+        if(empty($this->url)) {
+            return '';
+        }
+
+        if($absolute) {
+            return  Yii::$app->params['shemaSite']
+            .Yii::$app->params['domenSite']
+            .'/post/'.$this->url;
+        } else {
+            return '/post/'.$this->url;
+        }
+    }
+
+    /**
+     * Возращает сео заголовок для страници (title)
+     * @return string
+     */
+    public function getSeoTitle() {
+        if(strlen(trim(strip_tags($this->meta_title))) > 0) {
+            return $this->meta_title;
+        } else {
+            return $this->name;
+        }
+    }
+
+    /**
+     * Возращает сео описание для страници (meta description)
+     * @return string
+     */
+    public function getSeoDescription() {
+        if(strlen(trim(strip_tags($this->meta_description))) > 0) {
+            return $this->meta_description;
+        } else {
+            return StringHelper::truncateWords($this->content_short, 30, '');
+        }
+    }
+
+    // ========================================================================
+
+    public static function find()
+    {
+        return new PostQuery(get_called_class());
+    }
+
     /**
      * @inheritdoc
      */

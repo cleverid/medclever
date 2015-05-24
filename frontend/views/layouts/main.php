@@ -15,12 +15,13 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+
     <link rel="icon" type="image/png" href="/image/favicon_16х16.png" />
     <link rel="apple-touch-icon" href="/image/favicon_57х57.png"/>
-    <?php $this->head() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
 </head>
 <body>
     <?php $this->beginBody() ?>

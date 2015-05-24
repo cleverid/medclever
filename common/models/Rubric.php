@@ -8,6 +8,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\Expression;
+use yii\helpers\StringHelper;
 
 /**
  * This is the model class for table "{{%rubric}}".
@@ -27,7 +28,14 @@ use yii\db\Expression;
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
+ *
+ * // NestedSetsQueryBehavior
+ * @method ActiveQuery roots()
  * @method ActiveQuery children()
+ * @method bool makeRoot()
+ * @method bool insertAfter()
+ * @method bool prependTo()
+ * @method bool isLeaf()
  */
 class Rubric extends \yii\db\ActiveRecord implements ISEO
 {
@@ -85,8 +93,8 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             return '';
         }
 
-        if($this->url == "/") {
-            return "/";
+        if(preg_match('#^\/\.*#', $this->url)) {
+            return $this->url;
         }
 
         if($absolute) {
@@ -114,7 +122,11 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * @return string
      */
     public function getSeoTitle() {
-        return $this->meta_title;
+        if(strlen(trim(strip_tags($this->meta_title))) > 0) {
+            return $this->meta_title;
+        } else {
+            return $this->name;
+        }
     }
 
     /**
@@ -122,7 +134,11 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * @return string
      */
     public function getSeoDescription() {
-        return $this->meta_description;
+        if(strlen(trim(strip_tags($this->meta_description))) > 0) {
+            return $this->meta_description;
+        } else {
+            return StringHelper::truncateWords($this->description_short, 30, '');
+        }
     }
 
     // ========================================================================

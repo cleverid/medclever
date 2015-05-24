@@ -194,17 +194,35 @@ a:hover {
   padding: 0;
   margin: 0;
 }
-.rubric-item-info {
+.post-item {
+  margin: 12px 0 30px 0;
+}
+.post-item-title {
+  margin-bottom: 2px;
+}
+.post-item-title * {
+  font-size: 22px;
+  color: #303030;
+}
+.post-item-text {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.post-item-text > p {
+  padding: 0;
+  margin: 0;
+}
+.post-item-info {
   font-size: 13px;
   margin-bottom: 1px;
 }
-.rubric-item-info>span {
+.post-item-info>span {
   margin: 0 15px 0 0;
 }
-.rubric-item-filter {
+.post-item-filter {
   font-size: 13px;
   margin-bottom: 5px;
 }
-.rubric-item-filter i {
+.post-item-filter i {
   margin-right: 5px;
 }

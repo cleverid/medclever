@@ -101,6 +101,24 @@ a:hover { color: $colorBlue; text-decoration: underline; }
       margin: 0;
     }
   }
+}
+
+.post-item {
+  margin: 12px 0 30px 0;
+
+  &-title {
+    margin-bottom: 2px;
+    & * { font-size: 22px; color: darken($colorGrayText,  50%); }
+  }
+  &-text {
+    margin-bottom: 8px;
+    font-size: 18px;
+
+    & > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
 
   $fontRubricInfo = 13px;
   &-info {
@@ -112,4 +130,8 @@ a:hover { color: $colorBlue; text-decoration: underline; }
     font-size: $fontRubricInfo; margin-bottom: 5px;
     & i { margin-right: 5px; }
   }
+}
+
+.post-page {
+
 }
