@@ -10,6 +10,6 @@ use yii\widgets\ListView;
 <?= ListView::widget([
     'dataProvider' => new \yii\data\ArrayDataProvider(['allModels' => $rubrics]),
     'itemOptions' => ['class' => 'rubric-item'],
-    'itemView' => '@frontend/views/public/itemRubric',
+    'itemView' => '/public/itemRubric',
     'layout' => '{items}{pager}',
 ]) ?>

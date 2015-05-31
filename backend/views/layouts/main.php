@@ -28,21 +28,23 @@ AppAsset::register($this);
         <?php
             NavBar::begin([
                 'brandLabel' => Yii::$app->params['company.domen'],
-                'brandUrl' => Yii::$app->homeUrl,
+                'brandUrl' => Yii::$app->getUrlFrontend(),
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'Рубрики', 'url' => ['/rubric']],
-                ['label' => 'Посты', 'url' => ['/post']],
+                ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+                ['label' => Yii::t('app', 'Rubrics'), 'url' => ['/rubric']],
+                ['label' => Yii::t('app', 'Posts'), 'url' => ['/post']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
                 $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'label' => Yii::t('app', 'Logout ({user})', array(
+                        'user' => Yii::$app->user->identity->username
+                    )),
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ];

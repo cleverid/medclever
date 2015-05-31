@@ -3,10 +3,10 @@
 ?>
 <?if(!empty($items)):?>
     <ul class="menu-side">
-        <? foreach($items as $item):?>
+        <?php foreach($items as $item):?>
             <li class="<?=$item['active']?'active':''?> depth<?=$item['depth']?>">
                 <a href="<?=$item['url']?>"><?=$item['name']?></a>
             </li>
-        <? endforeach;?>
+        <?php endforeach;?>
     </ul>
 <?endif;?>

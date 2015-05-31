@@ -19,9 +19,9 @@ class Tinymce extends \letyii\tinymce\Tinymce {
         $this->configs = ArrayHelper::merge([
             'language' => 'ru',
             'menubar' => false,
-            'plugins' => ["link", "image", "code"],
+            'plugins' => ["link", "image", "code", 'fullscreen'],
             'toolbar' => [
-                "undo redo | bold italic underline | alignleft aligncenter alignright | styleselect | link image | code"
+                "undo redo | bold italic underline | alignleft aligncenter alignright | styleselect removeformat | link image | fullscreen code"
             ],
         ], $this->configs);
 

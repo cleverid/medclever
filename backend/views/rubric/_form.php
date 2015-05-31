@@ -1,9 +1,7 @@
 <?php
 
-use backend\widgets\Tinymce\Tinymce;
-use backend\widgets\TreeInAfter\TreeInAfter;
-use common\models\Rubric;
-use yii\helpers\ArrayHelper;
+use backend\components\Tabs;
+use yii\bootstrap\Collapse;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -18,25 +16,49 @@ use yii\widgets\ActiveForm;
         'enableAjaxValidation' => true,
     ]); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+        <?$paramsView = [
+            'form' => $form,
+            'model' => $model,
+        ] ?>
 
-    <?= $form->field($model, 'url')->textInput(['maxlength' => 255]) ?>
+        <div class="container-fluid" style="padding-left: 0;">
+            <div class="row col-md-9">
+                <?= Tabs::widget([
+                    'itemOptions' => [
+                        'class' => 'test'
+                    ],
+                    'items' => [
+                        [
+                            'label' => Yii::t('app', 'Main'),
+                            'content' => $this->render('_form_main', $paramsView),
+                            'active' => true
+                        ],
+                        [
+                            'label' => Yii::t('app', 'SEO'),
+                            'content' => $this->render('_form_seo', $paramsView),
+                        ]
+                    ]]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= Collapse::widget([
+                    'items' => [
+                        // equivalent to the above
+                        [
+                            'label' => Yii::t('app', 'Options'),
+                            'content' => $this->render('_form_options', $paramsView),
+                            // open its content by default
+                            'contentOptions' => ['class' => 'in']
+                        ],
+                    ]
+                ]);?>
+            </div>
+        </div>
 
-    <?= $form->field($model, 'parent_id')->widget(TreeInAfter::className(), ['root' => Rubric::getRoot()]);?>
+        <hr />
 
-    <?= $form->field($model, 'description_short')->widget(Tinymce::className(), []) ?>
-
-    <?= $form->field($model, 'description')->widget(Tinymce::className(), []) ?>
-
-    <?= $form->field($model, 'meta_title')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'meta_description')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'active')->checkbox() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+        <div class="form-group">
+            <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
 
     <?php ActiveForm::end(); ?>
 

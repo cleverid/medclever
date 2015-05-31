@@ -29,11 +29,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'rubric_id',
-            'name',
-            'url:url',
-            'content:ntext',
-            'content_short:ntext',
+            [
+                'attribute' => 'url',
+                'format' => 'raw',
+                'value' => Html::a($model->url, $model->getUrl(true)),
+            ],
+            'content_short:html',
+            [
+                'label' => Yii::t('app', 'Rubric'),
+                'attribute' => 'rubric.name'
+            ],
             'meta_title',
             'meta_description',
             'views',

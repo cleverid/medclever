@@ -14,7 +14,7 @@ use yii\widgets\ListView;
 
 <?= ListView::widget([
     'dataProvider' => $posts,
-    'itemOptions' => ['class' => 'rubric-item'],
-    'itemView' => '@frontend/views/public/itemPost',
+    'itemOptions' => ['class' => 'post-item'],
+    'itemView' => '/public/itemPost',
     'layout' => '{items}',
 ]) ?>

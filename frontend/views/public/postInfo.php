@@ -5,7 +5,7 @@
 ?>
 <div class="post-item-info">
     <span class="post-item-create">
-        Создано: <?=Yii::$app->formatter->asDatetime($model->published_at, Yii::$app->params['dateFormat']);?>
+        Создано: <?=Yii::$app->formatter->asDate($model->published_at);?>
     </span>
     <span class="post-item-author">
         Автор: Кирюхин А.

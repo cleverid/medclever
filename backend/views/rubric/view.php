@@ -30,7 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'url:url',
+            [
+                'attribute' => 'url',
+                'format' => 'raw',
+                'value' => Html::a($model->url, $model->getUrl(true)),
+            ],
             'description_short:html',
             'description:html',
             'meta_title',

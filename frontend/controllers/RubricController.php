@@ -40,7 +40,8 @@ class RubricController extends Controller {
      * @return string
      */
     public function rubricSub() {
-        $rubrics = $this->rubricCurrent->children()->all();
+        $rubrics = $this->rubricCurrent
+            ->children()->active()->all();
 
         return $this->render("list", [
             'model' => $this->rubricCurrent,

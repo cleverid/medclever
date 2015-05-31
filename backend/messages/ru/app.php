@@ -1,0 +1,21 @@
+<?php
+return [
+    'Logout ({user})' => 'Выйти ({user})',
+    'Update' => 'Обновить',
+    'Delete' => 'Удалить',
+    'Update {modelClass}' => 'Обновить {modelClass}',
+    'Create {modelClass}' => 'Создать {modelClass}',
+    'Create Post' => 'Создать публикацию',
+    'Update Post' => 'Обновить публикацию',
+    'Create Rubric' => 'Создать рубрику',
+    'Update Rubric' => 'Обновить рубрику',
+    'Home' => 'Главная',
+    'Rubric' => 'Рубрика',
+    'Rubrics' => 'Рубрики',
+    'Post' => 'Публикация',
+    'Posts' => 'Публикации',
+    'Link' => 'Ссылка',
+    'Main' => 'Основные',
+    'SEO' => 'СЕО',
+    'Options' => 'Параметры',
+];

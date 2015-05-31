@@ -1,7 +1,9 @@
 <?php
 
+use common\models\Post;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
@@ -16,32 +18,42 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Post',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Post', []), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
-            'rubric_id',
             'name',
-            'url:url',
-            'content:ntext',
-            // 'content_short:ntext',
-            // 'meta_title',
-            // 'meta_description',
-            // 'views',
-            // 'sort',
-            // 'active',
-            // 'published_at',
-            // 'created_at',
-            // 'updated_at',
-
+            [
+                'format' => 'raw',
+                'attribute' => 'url',
+                'value' => function($data) {
+                    /** @var Post $data */
+                    return Html::a($data->url, $data->getUrl(true), [
+                        'title' => $data->url,
+                    ]);
+                }
+            ],
+            [
+                'format' => 'html',
+                'attribute' => 'content_short',
+                'value' => function($data) {
+                    /** @var Post $data */
+                    $strip = strip_tags($data->content_short);
+                    return StringHelper::truncateWords($strip, Yii::$app->params['gridContentWordsCount']);
+                }
+            ],
+            [
+                'attribute' => 'published_at',
+                'value' => 'published_at',
+            ],
+            [
+                'label' => Yii::t('app', 'Rubric'),
+                'value' => 'rubric.name'
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
