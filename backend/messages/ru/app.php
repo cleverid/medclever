@@ -1,5 +1,6 @@
 <?php
 return [
+    'Load' => 'Загрузить',
     'Logout ({user})' => 'Выйти ({user})',
     'Update' => 'Обновить',
     'Delete' => 'Удалить',

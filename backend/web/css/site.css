@@ -91,3 +91,5 @@ a.desc:after {
 }
 
 h1 { font-size: 25px; }
+
+.elfinder-image-place img { max-height: 300px; max-width: 300px; margin-top: 20px;}

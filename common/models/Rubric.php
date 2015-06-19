@@ -15,6 +15,7 @@ use yii\helpers\StringHelper;
  *
  * @property integer $id
  * @property string $name
+ * @property string $image_file
  * @property string $url
  * @property string $description
  * @property string $description_short
@@ -193,7 +194,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [['name', 'url'], 'required'],
             [['description', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
-            [['parent_id', 'after_id', 'created_at', 'updated_at'], 'safe'],
+            [['image_file', 'parent_id', 'after_id', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255],
             ['parent_id', 'validateParent', 'skipOnError' => false],
             ['url', 'unique'],
@@ -222,6 +223,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
         return [
             'id' => 'ID',
             'name' => 'Имя',
+            'image_file' => 'Изображение',
             'url' => 'URL адрес страницы',
             'description' => 'Описание',
             'description_short' => 'Описание короткое',
