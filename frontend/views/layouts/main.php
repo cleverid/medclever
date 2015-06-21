@@ -36,12 +36,14 @@ AppAsset::register($this);
                alt="<?=Yii::$app->params['logoTagLine']?>">
                 <div class="logo"></div>
             </a>
-            <div class="search-box">
-                <form>
-                    <input class="search-input" type="text" placeholder="Что ищите?"/>
-                    <button class="btn-search"><i class="micon-search"></i></button>
-                </form>
-            </div>
+            <?if(0):?>
+                <div class="search-box">
+                    <form>
+                        <input class="search-input" type="text" placeholder="Что ищите?"/>
+                        <button class="btn-search"><i class="micon-search"></i></button>
+                    </form>
+                </div>
+            <?endif;?>
         </header>
 
         <div class="column-left">
