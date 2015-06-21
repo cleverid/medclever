@@ -33,6 +33,8 @@ use yii\helpers\StringHelper;
  * // NestedSetsQueryBehavior
  * @method ActiveQuery roots()
  * @method ActiveQuery children()
+ * @method ActiveQuery next()
+ * @method ActiveQuery prev()
  * @method bool makeRoot()
  * @method bool insertAfter()
  * @method bool prependTo()

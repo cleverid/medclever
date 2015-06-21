@@ -33,7 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'attribute' => 'image_file',
-                'value' => Html::img($model->image_file, ['style' => 'max-width:300px; max-height: 300px;'])
+                'value' => !empty($model->image_file)
+                    ?Html::img($model->image_file, ['style' => 'max-width:300px; max-height: 300px;'])
+                    :'',
             ],
             [
                 'attribute' => 'url',

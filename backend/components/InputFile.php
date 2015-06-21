@@ -44,11 +44,10 @@ class InputFile extends \mihaildev\elfinder\InputFile {
             <div class="elfinder-image-place col-md-6 row">{image}</div>
         </div>
 EOL;
+        $src = $this->model->{$this->attribute};
         $this->imageOptions = [
             'id' => $this->options['id']."_image",
-            'dispaly' => $this->hasModel() && strlen($this->model->{$this->attribute}) > 0
-                ?'block'
-                :'none',
+            'style' => 'display: none',
         ];
 
         $this->registrScript();
@@ -71,15 +70,33 @@ EOL;
             (function(){
                 var input = $('#$idInput'),
                     image = $('#$idImage'),
-                    oldValue = input.val();
+                    oldValue = input.val()
+
+                function ImageExist(url) {
+                   var img = new Image();
+                   img.src = url;
+
+                   return img.height != 0;
+                }
+
+                function setImage(url) {
+                    if(ImageExist(url)) {
+                        image.attr('src', url);
+                        image.show();
+                    } else {
+                        image.hide();
+                    }
+                }
 
                 setInterval(function(){
                     var newValue = input.val();
                     if(newValue !== oldValue) {
-                        image.attr('src', newValue);
                         oldValue = newValue;
+                        setImage(newValue);
                     }
-                }, $delayUpdate)
+                }, $delayUpdate);
+
+                setImage(oldValue);
             })();
 JS;
 

@@ -13,12 +13,18 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 
+/**
+ * Class TreeInAfter
+ * @package backend\widgets\TreeInAfter
+ */
 class TreeInAfter extends \yii\widgets\InputWidget {
 
     /**
      * @var Rubric
      */
     public $root;
+    /** @var Rubric */
+    public $model;
     public $idName = 'id';
     public $parentAttr = 'parent_id';
     public $afterAttr = 'after_id';
@@ -48,7 +54,9 @@ class TreeInAfter extends \yii\widgets\InputWidget {
             ]
         );
 
-        $parent = $parent = Rubric::findOne($this->model->parent_id);
+        $this->setBefore();
+
+        $parent = $this->getParent();
         echo Html::activeLabel($this->model, $this->afterAttr);
         echo Html::activeDropDownList(
             $this->model, $this->afterAttr,
@@ -85,6 +93,28 @@ class TreeInAfter extends \yii\widgets\InputWidget {
 EOL;
 
         $this->getView()->registerJs($script, View::POS_END);
+    }
+
+    /**
+     * @return Rubric
+     */
+    private function getParent() {
+        /** @var Rubric $parent */
+        $parent = Rubric::findOne($this->model->parent_id);
+        if (!$parent) {
+            $parent = Rubric::getRoot();
+            return $parent;
+        }
+
+        return $parent;
+    }
+
+    private function setBefore() {
+        /** @var Rubric $next */
+        $next = $this->model->prev()->one();
+        if ($next) {
+            $this->model->{$this->afterAttr} = $next->id;
+        }
     }
 
 }
