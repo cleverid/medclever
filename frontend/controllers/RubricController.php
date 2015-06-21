@@ -21,7 +21,12 @@ class RubricController extends Controller {
 
     /** View rubric */
     public function actionView($url) {
-        $this->rubricCurrent = Rubric::find()->where(array('url' => $url))->one();
+        $this->rubricCurrent = Rubric::find()
+            ->where(array('url' => $url))
+            // for rubric with short url
+            ->orWhere(array('url' => '/'.$url))
+            ->one();
+
         if(!$this->rubricCurrent) {
             $this->pageNotFound();
         }

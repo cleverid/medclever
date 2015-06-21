@@ -17,4 +17,5 @@ use yii\widgets\ListView;
     'itemOptions' => ['class' => 'post-item'],
     'itemView' => '/public/itemPost',
     'layout' => '{items}',
+    'emptyText' => '',
 ]) ?>

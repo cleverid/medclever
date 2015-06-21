@@ -18,6 +18,8 @@ return [
             'rules' => [
                 'rubric/<url>' => 'rubric/view',
                 'post/<url>' => 'post/view',
+                // short url
+                '/<url>' => 'rubric/view',
                 '<controller>/<action>' => '<controller>/<action>',
             ]
         ],
