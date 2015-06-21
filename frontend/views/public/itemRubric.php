@@ -7,7 +7,8 @@
 <div class="rubric-item">
     <div class="rubric-item-image">
         <a href="<?=$model->getUrl()?>">
-            <img src="<?=$model->image_file?>" />
+            <img src="<?=$model->image_file?>"
+                 alt="<?=$model->name?>"/>
         </a>
     </div>
     <div class="rubric-item-title">

@@ -20,6 +20,9 @@ AppAsset::register($this);
 
     <link rel="icon" type="image/png" href="/image/favicon_16х16.png" />
     <link rel="apple-touch-icon" href="/image/favicon_57х57.png"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
 </head>
