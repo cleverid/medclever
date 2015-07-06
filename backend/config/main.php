@@ -47,7 +47,7 @@ return [
     ],
     'controllerMap' => [
         'elfinder' => [
-            'class' => 'mihaildev\elfinder\Controller',
+            'class' => 'backend\components\elfinder\Controller',
             'access' => ['@'], //глобальный доступ к фаил менеджеру @ - для авторизорованных , ? - для гостей , чтоб открыть всем ['@', '?']
             'disabledCommands' => ['netmount'], //отключение ненужных команд https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
             'roots' => [
@@ -55,7 +55,19 @@ return [
                     'baseUrl'=>'@web',
                     'basePath'=>'@webroot',
                     'path' => 'files/rubrics',
-                    'name' => Yii::t('app', 'Rubrics')
+                    'name' => "Рубрики",
+                ],
+                [
+                    'baseUrl'=>'@web',
+                    'basePath'=>'@webroot',
+                    'path' => 'files/posts',
+                    'name' => "Публикации",
+                ],
+                [
+                    'baseUrl'=>'@web',
+                    'basePath'=>'@webroot',
+                    'path' => 'files/content',
+                    'name' => "Контент"
                 ],
             ],
         ]

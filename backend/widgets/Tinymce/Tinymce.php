@@ -10,16 +10,21 @@ namespace backend\widgets\Tinymce;
 
 
 use yii\helpers\ArrayHelper;
+use yii\web\JsExpression;
+use yii\web\View;
 
 class Tinymce extends \letyii\tinymce\Tinymce {
 
     public function init() {
         parent::init();
 
+        $this->registrScript();
+
         $this->configs = ArrayHelper::merge([
             'language' => 'ru',
             'menubar' => false,
             'plugins' => ["link", "image", "code", 'fullscreen'],
+            'file_browser_callback' => new JsExpression("elFinderBrowser"),
             'toolbar' => [
                 "undo redo | bold italic underline | alignleft aligncenter alignright | styleselect removeformat | link image | fullscreen code"
             ],
@@ -28,6 +33,27 @@ class Tinymce extends \letyii\tinymce\Tinymce {
         $this->options = ArrayHelper::merge([
             'id' => uniqid(),
         ], $this->options);
+    }
+
+    private function registrScript(){
+        $script = <<< JS
+            function elFinderBrowser (field_name, url, type, win) {
+              tinymce.activeEditor.windowManager.open({
+                file: '/index.php?r=elfinder/manager&callback=tinymce',// use an absolute path!
+                title: 'elFinder 2.0',
+                width: 900,
+                height: 450,
+                resizable: 'yes'
+              }, {
+                setUrl: function (url) {
+                  win.document.getElementById(field_name).value = url;
+                }
+              });
+              return false;
+            }
+JS;
+
+        $this->view->registerJs($script, View::POS_READY, __CLASS__);
     }
 
 }
