@@ -3,10 +3,8 @@
 namespace backend\components\elfinder;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\helpers\Url;
-use yii\web\Controller as BaseController;
 use yii\web\JsExpression;
 
 
@@ -74,14 +72,12 @@ class Controller extends \mihaildev\elfinder\Controller {
      * @return JsExpression
      */
     private function getCallbackForTinyMce(){
-        $script = <<<JS
-        function(file){
+        $script = "
+        function(file) {
             parent.tinymce.activeEditor.windowManager.getParams().setUrl(file.url);
-
-            // close popup window
             parent.tinymce.activeEditor.windowManager.close();
         }
-JS;
+        ";
 
         return new JsExpression($script);
     }

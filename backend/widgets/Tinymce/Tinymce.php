@@ -24,6 +24,8 @@ class Tinymce extends \letyii\tinymce\Tinymce {
             'language' => 'ru',
             'menubar' => false,
             'plugins' => ["link", "image", "code", 'fullscreen'],
+            'relative_urls' => true,
+            'convert_urls' => false,
             'file_browser_callback' => new JsExpression("elFinderBrowser"),
             'toolbar' => [
                 "undo redo | bold italic underline | alignleft aligncenter alignright | styleselect removeformat | link image | fullscreen code"
@@ -36,11 +38,13 @@ class Tinymce extends \letyii\tinymce\Tinymce {
     }
 
     private function registrScript(){
+        $title = \Yii::t('app', "File manager");
+
         $script = <<< JS
             function elFinderBrowser (field_name, url, type, win) {
               tinymce.activeEditor.windowManager.open({
                 file: '/index.php?r=elfinder/manager&callback=tinymce',// use an absolute path!
-                title: 'elFinder 2.0',
+                title: "$title",
                 width: 900,
                 height: 450,
                 resizable: 'yes'
@@ -49,6 +53,7 @@ class Tinymce extends \letyii\tinymce\Tinymce {
                   win.document.getElementById(field_name).value = url;
                 }
               });
+
               return false;
             }
 JS;
