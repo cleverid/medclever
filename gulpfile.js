@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     minifyCss = require("gulp-minify-css"),
     concatCss = require("gulp-concat-css"),
     rename = require("gulp-rename"),
+    notify = require("gulp-notify"),
     spritesmith  = require('gulp.spritesmith');
 
 var folderStylus = './frontend/web/stylus/',
@@ -18,8 +19,8 @@ gulp.task('style', function () {
             .pipe(gulp.dest(folderCss))
             .pipe(minifyCss(""))
             .pipe(rename("style.min.css"))
-            .pipe(gulp.dest(folderCss));
-            //.pipe(notify("Done css minified!"));
+            .pipe(gulp.dest(folderCss))
+            .pipe(notify("Done css minified!"));
 });
 
 gulp.task('sprite', function() {

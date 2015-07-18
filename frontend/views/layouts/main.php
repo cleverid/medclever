@@ -62,7 +62,14 @@ AppAsset::register($this);
     </div>
     <div class="wrapper-content-foother">
         <footer class="footer">
-
+            <div class="footer-copyright">© Физиолаб 2012-<?=date('Y')?></div>
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/about">Контакты</a></li>
+                    <li><a href="/kontakty">О нас</a></li>
+                </ul>
+            </div>
         </footer>
     </div>
 

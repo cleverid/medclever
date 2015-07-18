@@ -130,6 +130,38 @@ a:hover {
   height: 100px;
   width: 1200px;
   margin-top: -100px;
+  color: #626262;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.footer a {
+  color: #626262;
+}
+.footer-copyright {
+  float: left;
+}
+.footer-menu {
+  float: right;
+}
+.footer-menu>ul {
+  margin: 0;
+  font-size: 0;
+}
+.footer-menu>ul>li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 10px;
+  border-left: 1px solid #9d9f9e;
+  border-right: 1px solid #fff;
+  font-size: 18px;
+}
+.footer-menu>ul>li:first-child {
+  padding-left: none;
+  border-left: none;
+}
+.footer-menu>ul>li:last-child {
+  border-right: none;
 }
 .footer-dummy {
   height: 100px;
