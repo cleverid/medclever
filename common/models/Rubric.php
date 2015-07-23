@@ -2,6 +2,9 @@
 
 namespace common\models;
 
+use common\components\BBCode\BBCodeBehavior;
+use common\components\BBCode\GalleryCodeDefinition;
+use common\components\BBCode\GalleryDefenitionBuilder;
 use creocoder\nestedsets\NestedSetsBehavior;
 use frontend\models\interfaces\ISEO;
 use Yii;
@@ -40,8 +43,7 @@ use yii\helpers\StringHelper;
  * @method bool prependTo()
  * @method bool isLeaf()
  */
-class Rubric extends \yii\db\ActiveRecord implements ISEO
-{
+class Rubric extends \yii\db\ActiveRecord implements ISEO {
 
     public $leaf;
     public $after_id;
@@ -52,12 +54,12 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * @return Rubric
      */
     public static function getRoot() {
-        if(self::$_cRoot) {
+        if (self::$_cRoot) {
             return self::$_cRoot;
         }
 
         $root = self::find()->roots()->one();
-        if(!$root) {
+        if (!$root) {
             $root = new Rubric();
             $root->name = 'Рубрики';
             $root->url = 'rubrics';
@@ -74,13 +76,13 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * Применяет древовидную структуру
      */
     public function applayRoot() {
-        if(empty($this->parent_id)) {
+        if (empty($this->parent_id)) {
             $this->parent_id = Rubric::getRoot()->id;
         }
 
-        if($after = Rubric::findOne($this->after_id)) {
+        if ($after = Rubric::findOne($this->after_id)) {
             $this->insertAfter($after);
-        } elseif($parent = Rubric::findOne($this->parent_id)) {
+        } elseif ($parent = Rubric::findOne($this->parent_id)) {
             $this->prependTo($parent);
         } else {
             $this->prependTo(Rubric::getRoot());
@@ -94,23 +96,23 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
     public function getUrl($absolute = false) {
         $url = '';
 
-        $urlBase =  $absolute
-            ?Yii::$app->params['shemaSite'].Yii::$app->params['domenSite']
-            :'';
+        $urlBase = $absolute
+            ? Yii::$app->params['shemaSite'] . Yii::$app->params['domenSite']
+            : '';
 
-        if(empty($this->url)) {
-            return $urlBase.$url;
+        if (empty($this->url)) {
+            return $urlBase . $url;
         }
 
-        if(preg_match('#^\/\.*#', $this->url)) {
-            return $urlBase.$this->url;
+        if (preg_match('#^\/\.*#', $this->url)) {
+            return $urlBase . $this->url;
         }
 
-        if($absolute) {
-            return  $urlBase
-                    .'/rubric/'.$this->url;
+        if ($absolute) {
+            return $urlBase
+            . '/rubric/' . $this->url;
         } else {
-            return $urlBase.'/rubric/'.$this->url;
+            return $urlBase . '/rubric/' . $this->url;
         }
     }
 
@@ -122,7 +124,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
     public function isActiveByUrl($url) {
         $url = preg_replace("~\?.*$~", '', $url);
 
-        return preg_match("~\/".$this->url."$~", $url);
+        return preg_match("~\/" . $this->url . "$~", $url);
     }
 
     /**
@@ -130,7 +132,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * @return string
      */
     public function getSeoTitle() {
-        if(strlen(trim(strip_tags($this->meta_title))) > 0) {
+        if (strlen(trim(strip_tags($this->meta_title))) > 0) {
             return $this->meta_title;
         } else {
             return $this->name;
@@ -142,7 +144,7 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
      * @return string
      */
     public function getSeoDescription() {
-        if(strlen(trim(strip_tags($this->meta_description))) > 0) {
+        if (strlen(trim(strip_tags($this->meta_description))) > 0) {
             return $this->meta_description;
         } else {
             return StringHelper::truncateWords($this->description_short, 30, '');
@@ -151,31 +153,27 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
 
     // ========================================================================
 
-    public function transactions()
-    {
+    public function transactions() {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
     }
 
-    public static function find()
-    {
+    public static function find() {
         return new RubricQuery(get_called_class());
     }
 
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return '{{%rubric}}';
     }
 
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
@@ -184,17 +182,21 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
             [
                 'class' => NestedSetsBehavior::className(),
             ],
+            [
+                'class' => BBCodeBehavior::className(),
+                'attribute' => 'description_src',
+                'saveAttribute' => 'description',
+            ],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['name', 'url'], 'required'],
-            [['description', 'description_short'], 'string'],
+            [['description', 'description_src', 'description_short'], 'string'],
             [['sort', 'active'], 'integer'],
             [['image_file', 'parent_id', 'after_id', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255],
@@ -204,13 +206,13 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
     }
 
     public function validateParent($attribute, $params) {
-        if($this->parent_id == $this->id) {
+        if ($this->parent_id == $this->id) {
             $this->addError($attribute, 'Не может быть вложено само в себя');
         }
 
-        if($chldren = $this->children()->all()) {
-            foreach($chldren as $child) {
-                if($child->id == $this->parent_id) {
+        if ($chldren = $this->children()->all()) {
+            foreach ($chldren as $child) {
+                if ($child->id == $this->parent_id) {
                     $this->addError($attribute, 'Не может быть вложено в собственное дерево');
                 }
             }
@@ -220,14 +222,14 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'name' => 'Имя',
             'image_file' => 'Изображение',
             'url' => 'URL адрес страницы',
             'description' => 'Описание',
+            'description_src' => 'Описание',
             'description_short' => 'Описание короткое',
             'meta_title' => 'SEO заголовок (title)',
             'meta_description' => 'SEO описание (meta description)',

@@ -19,4 +19,4 @@ use common\models\Rubric;
 
 <?= $form->field($model, 'description_short')->widget(Tinymce::className(), []) ?>
 
-<?= $form->field($model, 'description')->widget(Tinymce::className(), []) ?>
+<?= $form->field($model, 'description_src')->widget(Tinymce::className(), []) ?>

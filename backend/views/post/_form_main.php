@@ -30,6 +30,6 @@ use yii\helpers\ArrayHelper;
 
 <?= $form->field($model, 'content_short')->widget(Tinymce::className(), []) ?>
 
-<?= $form->field($model, 'content')->widget(Tinymce::className(), [
+<?= $form->field($model, 'content_src')->widget(Tinymce::className(), [
     'configs' => [ 'height' => 500, ]
 ]) ?>

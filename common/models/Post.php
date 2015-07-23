@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\BBCode\BBCodeBehavior;
 use frontend\models\interfaces\ISEO;
 use Yii;
 use yii\helpers\StringHelper;
@@ -73,6 +74,19 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
 
     // ========================================================================
 
+    /**
+     * @inheritdoc
+     */
+    public function behaviors() {
+        return [
+            [
+                'class' => BBCodeBehavior::className(),
+                'attribute' => 'content_src',
+                'saveAttribute' => 'content',
+            ],
+        ];
+    }
+
     public static function find()
     {
         return new PostQuery(get_called_class());
@@ -94,7 +108,7 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
         return [
             [['rubric_id', 'views', 'sort', 'active'], 'integer'],
             [['name', 'url'], 'required'],
-            [['content', 'content_short'], 'string'],
+            [['content', 'content_src', 'content_short'], 'string'],
             [['published_at', 'created_at', 'updated_at'], 'safe'],
             [['name', 'url', 'meta_title', 'meta_description'], 'string', 'max' => 255]
         ];
@@ -111,6 +125,7 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
             'name' => Yii::t('app', 'Имя'),
             'url' => Yii::t('app', 'URL адрес'),
             'content' => Yii::t('app', 'Контент'),
+            'content_src' => Yii::t('app', 'Контент'),
             'content_short' => Yii::t('app', 'Контент короткий'),
             'meta_title' => Yii::t('app', 'SEO заголовок (title)'),
             'meta_description' => Yii::t('app', 'SEO описание (meta description)'),
