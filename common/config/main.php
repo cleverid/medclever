@@ -2,9 +2,14 @@
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language'=>'ru-RU',
+    'bootstrap' => ['log', 'thumbnail'],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'thumbnail' => [
+            'class' => 'himiklab\thumbnail\EasyThumbnail',
+            'cacheAlias' => 'thumbs',
         ],
         'formatter' => [
             'timeZone' => 'Europe/Moscow',
