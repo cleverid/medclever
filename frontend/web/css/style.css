@@ -276,3 +276,18 @@ a:hover {
 .content-about .user-info {
   margin: 0;
 }
+.content-uspehi {
+  border-collapse: collapse;
+}
+.content-uspehi td {
+  border-bottom: 1px solid #000;
+  padding: 15px 0;
+  vertical-align: top;
+}
+.content-uspehi tr:last-child td {
+  border-bottom: none;
+}
+.content-uspehi__image {
+  width: 180px;
+  text-align: center;
+}
