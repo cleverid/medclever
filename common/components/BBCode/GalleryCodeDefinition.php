@@ -29,6 +29,7 @@ class GalleryCodeDefinition extends CodeDefinition {
         $result = "";
 
         $path = $el->getAsText();
+        $pathFull = \Yii::getAlias('@webroot').$path;
         $demesions =  $el->getAttribute()[$this->tagName];
         $demesionsSplit = explode('x', $demesions);
         $width = $demesionsSplit[0];
@@ -38,15 +39,25 @@ class GalleryCodeDefinition extends CodeDefinition {
             $height = $width;
         }
 
-        $result .= "<div class='gallery'>".PHP_EOL;
+        if( strlen(trim($path)) > 0
+            && (is_file($pathFull) || is_dir($pathFull) )
+        ) {
+            $result .= "<div class='gallery'>".PHP_EOL;
 
-        $files = $this->getImageFromDir(\Yii::getAlias('@webroot').$path);
-        foreach($files as $file) {
-            $urlImage = $path.$file;
-            $result .= $this->renderItemFromImage($urlImage, $width, $height);
+            if(is_dir($pathFull)) {
+                $files = $this->getImageFromDir($pathFull);
+                foreach($files as $file) {
+                    $urlImage = $path.$file;
+                    $result .= $this->renderItemFromImage($urlImage, $width, $height);
+                }
+            }
+
+            if(is_file($pathFull)) {
+                $result .= $this->renderItemFromImage($path, $width, $height);
+            }
+
+            $result .= "</div>";
         }
-
-        $result .= "</div>";
 
         return $result;
     }
