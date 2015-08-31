@@ -21,4 +21,7 @@ return [
     'Options' => 'Параметры',
     'Content' => 'Контент',
     'File manager' => 'Файловый менеджер',
+    'Files' => "Файлы",
+    'Create File' => "Создать файл",
+    'Create' => "Создать",
 ];
