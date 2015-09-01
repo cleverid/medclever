@@ -1,5 +1,7 @@
 <?php
 
+use backend\components\Tabs;
+use yii\bootstrap\Collapse;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,31 +14,47 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?$paramsView = [
+        'form' => $form,
+        'model' => $model,
+    ] ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'size')->textInput() ?>
-
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'views')->textInput() ?>
-
-    <?= $form->field($model, 'downloads')->textInput() ?>
-
-    <?= $form->field($model, 'sort')->textInput() ?>
-
-    <?= $form->field($model, 'active')->textInput() ?>
-
-    <?= $form->field($model, 'published_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <div class="container-fluid" style="padding-left: 0;">
+        <div class="row col-md-9">
+            <?= Tabs::widget([
+                'itemOptions' => [
+                    'class' => 'test'
+                ],
+                'items' => [
+                    [
+                        'label' => Yii::t('app', 'Main'),
+                        'content' => $this->render('_form_main', $paramsView),
+                        'active' => true
+                    ],
+                    [
+                        'label' => Yii::t('app', 'SEO'),
+                        'content' => $this->render('_form_seo', $paramsView),
+                    ]
+                ]]) ?>
+        </div>
+        <div class="col-md-3">
+            <?= Collapse::widget([
+                'items' => [
+                    // equivalent to the above
+                    [
+                        'label' => Yii::t('app', 'Options'),
+                        'content' => $this->render('_form_options', $paramsView),
+                        // open its content by default
+                        'contentOptions' => ['class' => 'in']
+                    ],
+                    [
+                        'label' => Yii::t('app', 'Statistics'),
+                        'content' => $this->render('_form_statistics', $paramsView),
+                    ],
+                ]
+            ]);?>
+        </div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

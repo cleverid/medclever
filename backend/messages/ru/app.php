@@ -24,4 +24,5 @@ return [
     'Files' => "Файлы",
     'Create File' => "Создать файл",
     'Create' => "Создать",
+    'Statistics' => "Статистика",
 ];
