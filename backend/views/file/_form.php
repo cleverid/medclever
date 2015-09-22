@@ -12,7 +12,10 @@ use yii\widgets\ActiveForm;
 
 <div class="file-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        "options" => ['enctype' => 'multipart/form-data']
+    ]
+    ); ?>
 
     <?$paramsView = [
         'form' => $form,

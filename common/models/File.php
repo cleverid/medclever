@@ -2,9 +2,12 @@
 
 namespace common\models;
 
+use frontend\models\interfaces\ISEO;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\StringHelper;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "file".
@@ -24,8 +27,91 @@ use yii\db\Expression;
  * @property string $created_at
  * @property string $updated_at
  */
-class File extends \yii\db\ActiveRecord
+class File extends \yii\db\ActiveRecord implements ISEO
 {
+
+    /**
+     * @var UploadedFile
+     */
+    public $fileObject;
+    /** @var string  */
+    private $folderName = "published_files";
+
+    /**
+     * @return int
+     */
+    public function getDBIncriment() {
+        $shema = Yii::$app->db->createCommand("SHOW TABLE STATUS WHERE name='{$this->tableName()}'")
+            ->queryOne();
+
+        return (int)$shema['Auto_increment'];
+    }
+
+    /**
+     * Url страницы модели
+     * @return string
+     */
+    public function getUrl() {
+        return "/publish/".$this->id;
+    }
+
+    /**
+     * Url адрес для сохранения
+     * @return string
+     */
+    public function getUrlForDownload() {
+        $url = "/{$this->folderName}/".$this->name;
+
+        return $url;
+    }
+
+    /**
+     * Возращает сео заголовок для страницы (title)
+     * @return string
+     */
+    public function getSeoTitle() {
+        if(strlen(trim(strip_tags($this->meta_title))) > 0) {
+            return $this->meta_title;
+        } else {
+            return $this->name;
+        }
+    }
+
+    /**
+     * Возращает сео описание для страницы (meta description)
+     * @return string
+     */
+    public function getSeoDescription() {
+        if(strlen(trim(strip_tags($this->meta_description))) > 0) {
+            return $this->meta_description;
+        } else {
+            return StringHelper::truncateWords($this->description, 30, '');
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function upload() {
+        if ($this->fileObject) {
+            $prefix = $this->isNewRecord
+                ?$this->getDBIncriment()
+                :$this->id;
+
+            $name = $prefix
+                . "-" .$this->fileObject->baseName
+                . "." .$this->fileObject->extension;
+            $path = Yii::getAlias("@webroot") . "/{$this->folderName}/";
+
+            $this->name = $name;
+            $this->size = $this->fileObject->size;
+            return $this->fileObject->saveAs($path . $name);
+        } else {
+            return false;
+        }
+    }
+
+    // ========================================================================
 
     /**
      * @inheritdoc
@@ -53,9 +139,9 @@ class File extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'size'], 'required'],
-            [['size', 'views', 'downloads', 'sort', 'active'], 'integer'],
-            [['published_at', 'created_at', 'updated_at'], 'safe'],
+            [['fileObject'], 'file', 'skipOnEmpty' => true],
+            [['fileObject'], 'required', 'on' => "create"],
+            [['active', 'published_at', 'created_at', 'updated_at'], 'safe'],
             [['title', 'name', 'description', 'meta_title', 'meta_description'], 'string', 'max' => 255]
         ];
     }
@@ -80,6 +166,7 @@ class File extends \yii\db\ActiveRecord
             'published_at' => Yii::t('app', 'Время публикации'),
             'created_at' => Yii::t('app', 'Время создания'),
             'updated_at' => Yii::t('app', 'Время обновления'),
+            'fileObject' => Yii::t('app', 'Файл'),
         ];
     }
 

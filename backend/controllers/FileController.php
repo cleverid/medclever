@@ -8,6 +8,7 @@ use common\models\FileSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FileController implements the CRUD actions for File model.
@@ -61,9 +62,12 @@ class FileController extends Controller
     public function actionCreate()
     {
         $model = new File();
+        $model->scenario = "create";
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ( $model->load(Yii::$app->request->post())
+            && $this->uploadFile($model) && $model->save()
+        ) {
+                return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,7 +85,9 @@ class FileController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if( $model->load(Yii::$app->request->post()) && $model->validate()
+            && $this->uploadFile($model) && $model->save()
+        ) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -116,6 +122,19 @@ class FileController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    /**
+     * @param File $model
+     * @return bool
+     */
+    private function uploadFile($model) {
+        if (Yii::$app->request->isPost) {
+            $model->fileObject = UploadedFile::getInstance($model, 'fileObject');
+            if(!$model->fileObject) return true;
+
+            return $model->validate() && $model->upload();
         }
     }
 }

@@ -16,9 +16,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'publishes' => 'publishing/index',
+                'publish/<id:\d+>' => 'publishing/view',
                 'rubric/<url>' => 'rubric/view',
                 'post/<url>' => 'post/view',
-                // short url
+                 // short url
                 '/<url>' => 'rubric/view',
                 '<controller>/<action>' => '<controller>/<action>',
             ]
