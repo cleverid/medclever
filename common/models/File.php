@@ -48,6 +48,23 @@ class File extends \yii\db\ActiveRecord implements ISEO
     }
 
     /**
+     * @param int $precision
+     * @return string
+     */
+    public function getSizeHuman($precision = 1) {
+        $size = $this->size;
+        $units = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
+        $step = 1024;
+        $i = 0;
+        while (($size / $step) > 0.9) {
+            $size = $size / $step;
+            $i++;
+        }
+
+        return round($size, $precision)." ".$units[$i];
+    }
+
+    /**
      * Url страницы модели
      * @return string
      */
