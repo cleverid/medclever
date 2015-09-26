@@ -6,6 +6,6 @@
         <span class="file-page__size">[<?=$file->getSizeHuman()?>]</span>
     </div>
     <div class="file-page__description">
-        <?= $file->description ?>
+        <?= $file->getDescription() ?>
     </div>
 </div>
