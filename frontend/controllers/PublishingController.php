@@ -22,6 +22,8 @@ class PublishingController extends Controller
 
         $model = Rubric::findOne(['url' => "/publishes"]);
 
+        $this->setSeo($model);
+
         return $this->render('index', array(
             'files' => $files,
             'model' => $model,

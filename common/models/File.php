@@ -73,7 +73,7 @@ class File extends \yii\db\ActiveRecord implements ISEO
         if(strlen(trim(strip_tags($this->meta_title))) > 0) {
             return $this->meta_title;
         } else {
-            return $this->name;
+            return $this->title;
         }
     }
 

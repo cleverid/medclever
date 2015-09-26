@@ -1,8 +1,11 @@
 <? /** @var \common\models\File $file */?>
-<h1><?=$file->title?></h1>
-<div>
-    <?= $file->description ?>
-</div>
-<div>
-    <a href="<?=$file->getUrl()?>"><?=$file->name?></a>
+<div class="file-page">
+    <h1><?=$file->title?></h1>
+    <div class="file-page__download">
+        <a href="<?=$file->getUrlForDownload()?>"><?=$file->name?></a>
+        <span class="file-page__size"></span>
+    </div>
+    <div class="file-page__description">
+        <?= $file->description ?>
+    </div>
 </div>
