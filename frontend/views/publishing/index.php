@@ -13,7 +13,6 @@
 <?endif;?>
 <?= ListView::widget([
     'dataProvider' => $files,
-    'itemOptions' => ['class' => 'file-item'],
     'itemView' => '/public/itemFile',
     'layout' => '{items}{pager}',
 ]) ?>

@@ -20,7 +20,7 @@ class PublishingController extends Controller
             ],
         ]);
 
-        $model = Rubric::findOne(['url' => "/publikacii"]);
+        $model = Rubric::findOne(['url' => "/publishes"]);
 
         return $this->render('index', array(
             'files' => $files,

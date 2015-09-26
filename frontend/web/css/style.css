@@ -1,27 +1,27 @@
 .micon-search {
   display: block;
   background-image: url("./../image/sprite.png");
-  background-position: -28px 0px;
+  background-position: 0px -51px;
   width: 28px;
   height: 28px;
 }
 .micon-search:hover {
   background-image: url("./../image/sprite.png");
-  background-position: 0px 0px;
+  background-position: -51px 0px;
   width: 28px;
   height: 28px;
 }
 .micon-tag {
   display: inline-block;
   background-image: url("./../image/sprite.png");
-  background-position: 0px -28px;
+  background-position: -51px -28px;
   width: 21px;
   height: 18px;
 }
 .micon-rubric {
   display: inline-block;
   background-image: url("./../image/sprite.png");
-  background-position: -21px -28px;
+  background-position: -28px -51px;
   width: 22px;
   height: 15px;
 }
@@ -290,4 +290,34 @@ a:hover {
 .content-grid__image {
   width: 180px;
   text-align: center;
+}
+.file-item {
+  padding: 10px;
+  font-size: 0;
+}
+.file-item__left {
+  width: 60px;
+  display: inline-block;
+  vertical-align: top;
+}
+.file-item__right {
+  width: 790px;
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: top;
+}
+.file-item__icon {
+  background-image: url("./../image/sprite.png");
+  background-position: 0px 0px;
+  width: 51px;
+  height: 51px;
+}
+.file-item__title {
+  font-weight: bold;
+}
+.file-item__description {
+  margin-top: 5px;
+}
+.file-item__download {
+  margin-top: 5px;
 }

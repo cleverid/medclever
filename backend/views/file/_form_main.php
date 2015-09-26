@@ -5,6 +5,7 @@
 <?if(!empty($model->name)):?>
     <span><?=$model->getUrlForDownload()?></span>
 <?endif;?>
+
 <?= $form->field($model, 'fileObject')->fileInput() ?>
 
 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

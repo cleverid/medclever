@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     concatCss = require("gulp-concat-css"),
     rename = require("gulp-rename"),
     notify = require("gulp-notify"),
-    spritesmith  = require('gulp.spritesmith');
+    spritesmith  = require('gulp.spritesmith'),
+    plumber = require('gulp-plumber');
 
 var folderStylus = './frontend/web/stylus/',
     folderCss = './frontend/web/css/',
@@ -14,6 +15,7 @@ var folderStylus = './frontend/web/stylus/',
 
 gulp.task('style', function () {
     return gulp.src(folderStylus + 'style.styl')
+            .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
             .pipe(stylus())
             .pipe(rename("style.css"))
             .pipe(gulp.dest(folderCss))
