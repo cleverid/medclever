@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -32,14 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'name',
             'size',
-            'description',
+            'description_short',
+            [
+                "attribute" => 'description',
+                "value" => StringHelper::truncateWords(strip_tags($model->description), 100, ""),
+            ],
             'meta_title',
             'meta_description',
             'views',
             'downloads',
             'sort',
             'active',
-            'published_at',
             'created_at',
             'updated_at',
         ],

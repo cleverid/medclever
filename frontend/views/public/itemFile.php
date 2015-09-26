@@ -12,9 +12,9 @@
         <div class="file-item__title" >
             <a href="<?=$model->getUrl()?>"><?=$model->title?></a>
         </div>
-        <?if(!empty($model->description)):?>
+        <?if(!empty($model->description_short)):?>
             <div class="file-item__description">
-                <?=$model->description?>
+                <?=$model->description_short?>
             </div>
         <?endif;?>
         <div class="file-item__download">

@@ -17,6 +17,7 @@ use yii\web\UploadedFile;
  * @property string $name
  * @property integer $size
  * @property string $description
+ * @property string $description_short
  * @property string $meta_title
  * @property string $meta_description
  * @property integer $views
@@ -62,6 +63,17 @@ class File extends \yii\db\ActiveRecord implements ISEO
         }
 
         return round($size, $precision)." ".$units[$i];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription() {
+        if(strlen(trim(strip_tags($this->description))) > 0) {
+            return $this->description;
+        } else {
+            return $this->description_short;
+        }
     }
 
     /**
@@ -159,7 +171,8 @@ class File extends \yii\db\ActiveRecord implements ISEO
             [['fileObject'], 'file', 'skipOnEmpty' => true],
             [['fileObject'], 'required', 'on' => "create"],
             [['active', 'published_at', 'created_at', 'updated_at'], 'safe'],
-            [['title', 'name', 'description', 'meta_title', 'meta_description'], 'string', 'max' => 255]
+            [['title', 'name', 'description', 'meta_title', 'meta_description'], 'string', 'max' => 255],
+            [['description_short'], 'string']
         ];
     }
 
@@ -174,6 +187,7 @@ class File extends \yii\db\ActiveRecord implements ISEO
             'name' => Yii::t('app', 'Имя файла'),
             'size' => Yii::t('app', 'Размер файла в байтах'),
             'description' => Yii::t('app', 'Описание'),
+            'description_short' => Yii::t('app', 'Короткое описание'),
             'meta_title' => Yii::t('app', 'SEO заголовок (title)'),
             'meta_description' => Yii::t('app', 'SEO описание (meta description)'),
             'views' => Yii::t('app', 'Количество просмотров'),

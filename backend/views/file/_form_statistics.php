@@ -1,4 +1,5 @@
 <?
+/** @var \common\models\File $model */
 use common\models\Rubric;
 use yii\helpers\ArrayHelper;
 ?>

@@ -1,5 +1,7 @@
 <?
 /** @var \common\models\File $model */
+use backend\widgets\Tinymce\Tinymce;
+
 ?>
 
 <?if(!empty($model->name)):?>
@@ -10,5 +12,7 @@
 
 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
+<?= $form->field($model, 'description_short')->textarea(['maxlength' => true]) ?>
+
+<?= $form->field($model, 'description')->widget(Tinymce::className(), []) ?>
 
