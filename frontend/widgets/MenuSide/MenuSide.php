@@ -9,6 +9,7 @@
 namespace frontend\widgets\MenuSide;
 
 
+use common\models\Post;
 use common\models\Rubric;
 
 class MenuSide extends \yii\base\Widget {
@@ -55,6 +56,7 @@ class MenuSide extends \yii\base\Widget {
     }
 
     /**
+     * Return selected item from menu
      * @return Rubric|null
      */
     private function getSelectedItem() {
@@ -63,9 +65,25 @@ class MenuSide extends \yii\base\Widget {
         }
 
         $rubricSelected = null;
-        foreach($this->rubrics as $rubric) {
-            if($rubric->isActiveByUrl(\Yii::$app->request->url)) {
-                $rubricSelected = $rubric;
+
+        $urlPage = \Yii::$app->request->url;
+        if(preg_match("~^\/post~", $urlPage)) {
+            foreach($this->rubrics as $rubric) {
+                if($rubric->url == $urlPage) {
+                    $rubricSelected = $rubric;
+                }
+
+                if(!$rubricSelected
+                    && ($post = Post::findByUrlPage($urlPage))
+                ) {
+                    $rubricSelected = $post->getRubric()->one();
+                }
+            }
+        } else {
+            foreach($this->rubrics as $rubric) {
+                if($rubric->isActiveByUrl($urlPage)) {
+                    $rubricSelected = $rubric;
+                }
             }
         }
 
@@ -73,6 +91,7 @@ class MenuSide extends \yii\base\Widget {
     }
 
     /**
+     * Return ap path to root from selected
      * @return Rubric[]
      */
     private function getTreePath(){

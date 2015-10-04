@@ -122,13 +122,18 @@ class Rubric extends \yii\db\ActiveRecord implements ISEO {
      * @return bool
      */
     public function isActiveByUrl($url) {
+        // clear get query
         $url = preg_replace("~\?.*$~", '', $url);
 
-        return preg_match("~\/" . $this->url . "$~", $url);
+        if(preg_match("~^\/.*~", $this->url)) {
+            return $this->url == $url;
+        } else {
+            return preg_match("~\/" . $this->url . "$~", $url);
+        }
     }
 
     /**
-     * Возращает сео заголовок для страници (title)
+     * Возращает сео заголовок для страницы (title)
      * @return string
      */
     public function getSeoTitle() {

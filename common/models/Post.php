@@ -31,6 +31,21 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
 {
 
     /**
+     * @param $urlPage
+     * @return Post|null
+     */
+    public static function findByUrlPage($urlPage) {
+        $post = null;
+
+        if( preg_match("~\/(.[^\/]*)$~", $urlPage, $match) ) {
+            /** @var Post $post */
+            $post = Post::findOne(['url' => $match[1]]);
+        }
+
+        return $post;
+    }
+
+    /**
      * @param bool $absolute
      * @return string
      */
