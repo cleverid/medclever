@@ -17,10 +17,7 @@
                 <?=$model->description_short?>
             </div>
         <?endif;?>
-        <div class="file-item__download">
-            <a href="<?=$model->getUrlForDownload()?>">Скачать</a>
-            <span class="file-item__size">[<?=$model->getSizeHuman()?>]</span>
-        </div>
+        <?=\frontend\widgets\FileDownload\FileDownload::widget(['file' => $model])?>
     </div>
     <div style="clear: both"></div>
 </div>

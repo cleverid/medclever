@@ -18,6 +18,8 @@ return [
             'rules' => [
                 'publishes' => 'publishing/index',
                 'publish/<id:\d+>' => 'publishing/view',
+                'publish-download-inc/<id:\d+>' => 'publishing/downloadinc',
+                'publish-view-inc/<id:\d+>' => 'publishing/viewinc',
                 'rubric/<url>' => 'rubric/view',
                 'post/<url>' => 'post/view',
                  // short url

@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\File;
 use common\models\Rubric;
 use yii\data\ActiveDataProvider;
+use yii\web\View;
 
 class PublishingController extends Controller
 {
@@ -40,9 +41,47 @@ class PublishingController extends Controller
 
         $this->setSeo($file);
 
+        $this->registrScriptViewCounter($file);
         return $this->render('view', [
             'file' => $file
         ]);
+    }
+
+    /**
+     * @param $file File
+     */
+    private function registrScriptViewCounter($file) {
+        $id = $file->id;
+        $script = <<<JS
+            setTimeout(function(){
+                $.ajax({
+                    url: "/publish-view-inc/$id",
+                    type: "GET"
+                });
+            }, 2000);
+
+JS;
+
+        $this->view->registerJs($script, View::POS_READY, __CLASS__);
+    }
+
+    public function actionViewinc($id) {
+        /** @var File $file */
+        $session = \Yii::$app->session;
+        $key = 'view_file_'.$id;
+        if(!$session->get($key)) {
+            $file = File::findOne($id);
+            $file->views += 1;
+            $file->save();
+            $session->set($key, 1);
+        }
+    }
+
+    public function actionDownloadinc($id) {
+        /** @var File $file */
+        $file = File::findOne($id);
+        $file->downloads += 1;
+        $file->save();
     }
 
 }
