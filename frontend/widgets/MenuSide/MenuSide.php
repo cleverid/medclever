@@ -79,6 +79,12 @@ class MenuSide extends \yii\base\Widget {
                     $rubricSelected = $post->getRubric()->one();
                 }
             }
+        } elseif(preg_match("~^\/publish~", $urlPage)) {
+            foreach($this->rubrics as $rubric) {
+                if($rubric->url == "/publishes") {
+                    $rubricSelected = $rubric;
+                }
+            }
         } else {
             foreach($this->rubrics as $rubric) {
                 if($rubric->isActiveByUrl($urlPage)) {
