@@ -114,7 +114,7 @@ class File extends \yii\db\ActiveRecord implements ISEO
         if(strlen(trim(strip_tags($this->meta_description))) > 0) {
             return $this->meta_description;
         } else {
-            return StringHelper::truncateWords($this->description, 30, '');
+            return StringHelper::truncateWords(strip_tags($this->description), 30, '');
         }
     }
 
