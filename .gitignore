@@ -34,3 +34,5 @@ phpunit.phar
 
 node_modules
 frontend/web/stylus/sprite.styl
+
+frontend/web/robots.txt
