@@ -1,5 +1,5 @@
 {
-  "name": "physiolab.ru",
+  "name": "medclever.com",
   "version": "1.0.0",
   "description": "REQUIREMENTS\r ------------\r Shoud be installed [virtualbox](https://www.virtualbox.org/) and [vagrant](https://www.vagrantup.com/)",
   "main": "index.js",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://eawapownikov@bitbucket.org/eawapownikov/physiolab.ru.git"
+    "url": "https://eawapownikov@bitbucket.org/eawapownikov/medclever.ru.git"
   },
   "author": "Eugen Shaposhnikov <eawapownikov@gmail.com>",
   "license": "ISC"

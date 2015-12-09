@@ -1,7 +1,7 @@
 <?php
 return [
-    'company.domen' => 'physiolab.ru',
-    'company.name' => 'Physiolab',
+    'company.domen' => 'medclever.com',
+    'company.name' => 'Medclever',
     'adminEmail' => 'admin@example.com',
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,

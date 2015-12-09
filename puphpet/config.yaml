@@ -33,7 +33,7 @@ vagrantfile-local:
                 owner: www-data
                 group: www-data
                 source: ./
-                target: /var/www/physiolab.ru/
+                target: /var/www/medclever.com/
                 sync_type: default
                 rsync:
                     args:
@@ -87,15 +87,15 @@ apache:
         - rewrite
     vhosts:
         gbbndpqsxqdh:
-            servername: physiolab.dev
-            docroot: /var/www/physiolab.ru/frontend/web
+            servername: medclever.dev
+            docroot: /var/www/medclever.com/frontend/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
             directories:
                 eqrwtzfwxexl:
                     provider: directory
-                    path: /var/www/physiolab.ru/frontend/web
+                    path: /var/www/medclever.com/frontend/web
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -113,13 +113,13 @@ apache:
             ssl_chain: ''
             ssl_certs_dir: ''
         5hciwf2mln7x:
-            servername: admin.physiolab.dev
-            docroot: /var/www/physiolab.ru/backend/web
+            servername: admin.medclever.dev
+            docroot: /var/www/medclever.com/backend/web
             port: '80'
             directories:
                 tsm23xjqfnar:
                     provider: directory
-                    path: /var/www/physiolab.ru/backend/web
+                    path: /var/www/medclever.com/backend/web
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -147,8 +147,8 @@ nginx:
     vhosts:
         tnkmlnsijsg9:
             proxy: ''
-            server_name: physiolab.dev
-            www_root: /var/www/physiolab.ru/frontend/web/
+            server_name: medclever.dev
+            www_root: /var/www/medclever.com/frontend/web/
             listen_port: '80'
             location: \.php$
             index_files:
@@ -163,8 +163,8 @@ nginx:
             ssl_key: ''
         xd31zsjfb11o:
             proxy: ''
-            server_name: admin.physiolab.dev
-            www_root: /var/www/physiolab.ru/backend/web/
+            server_name: admin.medclever.dev
+            www_root: /var/www/medclever.com/backend/web/
             listen_port: '80'
             location: \.php$
             index_files:
@@ -250,11 +250,11 @@ mysql:
         jwqqBCccVmmn:
             grant:
                 - ALL
-            name: physiolab
+            name: medclever
             host: localhost
-            user: physiolab
-            password: physiolab
-            sql_file: /var/www/physiolab.ru/data/physiolab.sql
+            user: medclever
+            password: medclever
+            sql_file: /var/www/medclever.com/data/medclever.sql
 postgresql:
     install: '0'
     settings:

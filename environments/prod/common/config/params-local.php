@@ -1,5 +1,5 @@
 <?php
 return [
-    'domenSite' => 'physiolab.ru',
+    'domenSite' => 'medclever.com',
     'shemaSite' => 'http://',
 ];

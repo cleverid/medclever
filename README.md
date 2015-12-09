@@ -7,23 +7,23 @@ The minimum requirement by this application template that your Web server suppor
 INSTALLATION
 ------------
 ```
-git clone https://eawapownikov@bitbucket.org/eawapownikov/physiolab.ru.git
-cd physiolab.ru
+git clone https://eawapownikov@bitbucket.org/eawapownikov/medclever.ru.git
+cd medclever.com
 vagrant up
 vagrant ssh
-cd /var/www/physiolab.ru
+cd /var/www/medclever.com
 composer update
 php init --env=Production --overwrite=All
     or for develop
     php init --env=Development --overwrite=All
 php yii migrate
 ```
-Site will be available on [192.168.100.101](http://192.168.100.101) or [physiolab.dev](http://physiolab.dev), [admin.physiolab.dev](http://admin.physiolab.dev)
+Site will be available on [192.168.100.101](http://192.168.100.101) or [medclever.dev](http://medclever.dev), [admin.medclever.dev](http://admin.medclever.dev)
 
 add to hosts file the following lines
 ```
-192.168.100.101 physiolab.dev
-192.168.100.101 admin.physiolab.dev
+192.168.100.101 medclever.dev
+192.168.100.101 admin.medclever.dev
 ```
 
 Data base management system available on [192.168.100.101/adminer](http://192.168.100.101/adminer)

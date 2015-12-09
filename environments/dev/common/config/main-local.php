@@ -3,9 +3,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=physiolab',
-            'username' => 'physiolab',
-            'password' => 'physiolab',
+            'dsn' => 'mysql:host=localhost;dbname=medclever',
+            'username' => 'medclever',
+            'password' => 'medclever',
             'charset' => 'utf8',
         ],
         'mailer' => [
