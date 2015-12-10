@@ -1,13 +1,13 @@
 @require 'icons'
 @require 'sprite'
 
-$widthPage = 1200px;
-$widthColumnLeft = 300px;
-$widthColumnCenter = $widthPage - $widthColumnLeft;
+$widthPage = 1150px;
+$widthColumnRight = 300px;
+$widthColumnCenter = $widthPage - $widthColumnRight;
 $paddingColumnCenter = 15px;
 $heightFooter = 100px;
 
-$colorBlue = #08599b;
+$colorBlue = #6ebed3;
 $colorGray = #afafaf;
 $colorGrayText = #5f5f5f;
 $colorLink = $colorBlue;
@@ -19,7 +19,7 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%;
   font-family: Arial, Tahoma;
   color: $colorGrayText;
 }
-  html * { color: $colorGrayText; }
+html * { color: $colorGrayText; }
 html { background: url("./../image/bg-fon.jpg"); }
 body { background: url("./../image/bg-fon-line.png") }
 
@@ -31,101 +31,57 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 .wrapper-content { width: $widthPage; min-height: 100%; margin: 0 auto; background-color: #ffffff; }
 
 .header {
-  height: 240px;
-  background: url("./../image/bg-header.png");
+  height: 120px;
   position: relative;
-
-  & .logo { background: url("./../image/logo.png");
-    height: 97px; width: 396px;
-    display: block; position: absolute; top: 70px; left: 20px;
-  }
-
-  & .search-box {
-    position: absolute; right: 20px; bottom: 20px;
-    font-size: 0;
-    $borderWidth = 1px;
-    & .search-input, & .btn-search {  transition:all 1s ease; }
-    & .search-input { width: 250px; height: 35px; box-sizing: border-box; vertical-align: middle;
-      padding: 4px 8px; font-size: 15px;
-      border: $borderWidth solid $colorGray; border-right: none; }
-    & .btn-search { width: 35px; height: 35px; padding: 3px; box-sizing: border-box; vertical-align: middle;
-      background: none; border $borderWidth solid $colorGray;
-      cursor: pointer; }
-    &.focus .search-input, &.focus .btn-search,
-    &:hover .search-input, &:hover .btn-search
-    { border-color: $colorBlue; }
-  }
+  background: $colorBlue;
 }
 
-.column-left { box-sizing: border-box; width: $widthColumnLeft; float: left;
+.column-right {
+  float: right;
+  box-sizing: border-box; width: $widthColumnRight;
   border-right: 1px dashed $colorGray; }
-.column-center { width: $widthColumnCenter; padding: 0 $paddingColumnCenter;
+.column-center {
+  width: $widthColumnCenter; padding-right: $paddingColumnCenter;
   box-sizing: border-box;
   float: right;  }
 .footer {
+  background: $colorBlue;
   $footer-color = #626262;
   $footer-font-size = 18px;
-  background: url("./../image/bg-footer.png"); background-color: #E8E8E8;
   height: $heightFooter; width: $widthPage; margin-top: -($heightFooter);
-  color: $footer-color;
   padding: 15px 25px; box-sizing: border-box;
   font-size: $footer-font-size;
-
-  & a { color: #626262; }
-  &-copyright { float: left; }
-  &-menu { float: right; }
-  &-menu>ul { margin: 0; font-size: 0; }
-  &-menu>ul>li { list-style-type: none; display: inline-block; padding: 0 10px;
-    border-left: 1px solid #9d9f9e; border-right: 1px solid white; font-size: $footer-font-size; }
-  &-menu>ul>li:first-child { padding-left: none; border-left: none; }
-  &-menu>ul>li:last-child { border-right: none; }
 }
 .footer-dummy { height: $heightFooter; }
 .wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 
-.menu-side {
-  font-size: 20px;
-  margin-top: 20px;
-  padding: 0 10px 0 20px;
-
-  & li { list-style-type: none; }
-  & .active a { color: $colorBlue; }
-  & .depth0 { margin-bottom: 10px; }
-  & .depth1 { font-size: 16px; margin-left: 25px; margin-bottom: 7px;
-      display: block; position: relative; }
-  & .depth1:before { content: "■ "; color: $colorBlue; position: absolute;
-      left: -15px; top: 0; font-size: 13px; }
+.image-side {
+  height: 350px;
+  background: $colorBlue;
+  margin-top: 15px;
 }
 
-.btn {
-  display: inline-block; border: 1px solid $colorGray; padding: 5px;
-  transition: all 0.6s ease;
-
-  &:hover { border-color: $colorBlue; }
+.subscribe-side {
+  height: 200px;
+  background: $colorBlue;
+  margin-top: 15px;
 }
 
-.rubric-item {
-  margin: 12px 0 30px 0;
+.social-side {
+  height: 100px;
+  background: $colorBlue;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
-  &-image { float: left; margin-right: 10px; }
-  &-image img { max-width: 200px; }
-  &-title {
-    margin-bottom: 2px;
-    & * { font-size: 22px; color: darken($colorGrayText,  50%); }
-  }
-  &-text {
-    margin-bottom: 8px;
-    font-size: 18px;
-
-    & > p {
-      padding: 0;
-      margin: 0;
-    }
-  }
+.social-share {
+  height 60px; margin: 15px 0;
+  background: $colorBlue;
 }
 
 .post-item {
-  margin: 12px 0 30px 0;
+  background: $colorBlue; height: 200px;
+  margin-top: 15px;
 
   &-title {
     margin-bottom: 2px;
@@ -154,46 +110,3 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 }
 
 .post-page {  }
-
-.content-about {
-  & .about-user { text-align: center; margin-bottom: 30px; }
-  & .user-fio { font-size: 20px; margin: 0; }
-  & .user-info { margin: 0; }
-}
-
-.content-grid {
-  border-collapse: collapse;
-  & td { border-bottom: 1px solid black; padding: 15px 0;   vertical-align: top; }
-  & tr:last-child td { border-bottom: none; }
-  &__image { width: 180px; text-align: center; }
-}
-
-.file-item {
-  padding: 10px;
-  font-size: 0;
-
-  &__left {
-    width: 60px;
-    display: inline-block;
-    vertical-align: top;
-  }
-  &__right {
-    width: ($widthColumnCenter - 60 - @padding * 2 - 2 * $paddingColumnCenter);
-    display: inline-block;
-    font-size: $fontDefault;
-    vertical-align: top;
-  }
-
-  &__icon {
-    sprite($s_icon_file_pdf);
-  }
-  &__title {  font-weight: bold;  }
-  &__description { margin-top: 5px; }
-  &__download { margin-top: 5px; }
-}
-
-.file-page {
-  &__download {  }
-  &__description { margin-top: 5px; }
-
-}

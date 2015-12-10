@@ -32,6 +32,7 @@ AppAsset::register($this);
     <div class="wrapper-content">
 
         <header class="header">
+            Шапка
             <a href="/"
                alt="<?=Yii::$app->params['logoTagLine']?>">
                 <div class="logo"></div>
@@ -46,8 +47,10 @@ AppAsset::register($this);
             <?endif;?>
         </header>
 
-        <div class="column-left">
-            <?= MenuSide::widget([])?>
+        <div class="column-right">
+            <?= \frontend\widgets\BannerSide\BannerSide::widget()?>
+            <?= \frontend\widgets\SubscribeSide\SubscribeSide::widget()?>
+            <?= \frontend\widgets\SocialWeSide\SocialWeSide::widget()?>
         </div>
         <div class="column-center">
             <?= Breadcrumbs::widget([
@@ -55,6 +58,7 @@ AppAsset::register($this);
             ]) ?>
             <?= Alert::widget() ?>
             <?= $content ?>
+            <?= \frontend\widgets\SocialShare\SocialShare::widget()?>
         </div>
 
         <div style="clear: both"></div>
@@ -62,14 +66,7 @@ AppAsset::register($this);
     </div>
     <div class="wrapper-content-foother">
         <footer class="footer">
-            <div class="footer-copyright">© Физиолаб 2012-<?=date('Y')?></div>
-            <div class="footer-menu">
-                <ul>
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/kontakty">Контакты</a></li>
-                    <li><a href="/about">О нас</a></li>
-                </ul>
-            </div>
+            футер
         </footer>
     </div>
 
