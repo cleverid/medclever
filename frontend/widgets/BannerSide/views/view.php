@@ -1,3 +1,5 @@
 <div class="image-side">
-    Карманный доктор
+    <a href="//pocketdoctor.medclever.com">
+        <img src="/images/pocket-doctor.png">
+    </a>
 </div>

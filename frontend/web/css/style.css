@@ -38,10 +38,10 @@ html * {
   color: #5f5f5f;
 }
 html {
-  background: url("./../image/bg-fon.jpg");
+  background: url("./../images/bg-fon.jpg");
 }
 body {
-  background: url("./../image/bg-fon-line.png");
+  background: url("./../images/bg-fon-line.png");
 }
 h1 {
   color: #6ebed3;
@@ -96,7 +96,7 @@ a:hover {
   margin: 0 auto;
 }
 .image-side {
-  height: 350px;
+  height: 412px;
   background: #6ebed3;
   margin-top: 15px;
 }

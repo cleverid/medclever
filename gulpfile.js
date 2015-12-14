@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 
 var folderStylus = './frontend/web/stylus/',
     folderCss = './frontend/web/css/',
-    folderImages = './frontend/web/image/',
+    folderImages = './frontend/web/images/',
     folderImagesForSprite = './frontend/web/stylus/sprite/',
     fileStylusTemplate = folderStylus + "stylus.template.sprite";
 
