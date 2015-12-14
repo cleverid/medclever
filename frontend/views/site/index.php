@@ -16,17 +16,5 @@ $this->title = 'My Yii Application';
             'emptyText' => '',
         ]) ?>
 
-        <div class="post-item">
-            пост
-        </div>
-
-        <div class="post-item">
-            пост
-        </div>
-
-        <div class="post-item">
-            пост
-        </div>
-
     </div>
 </div>

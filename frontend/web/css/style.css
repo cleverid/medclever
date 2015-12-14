@@ -117,9 +117,7 @@ a:hover {
   background: #6ebed3;
 }
 .post-item {
-  background: #6ebed3;
-  height: 200px;
-  margin-top: 15px;
+  margin: 12px 0 30px 0;
 }
 .post-item-title {
   margin-bottom: 2px;
@@ -149,4 +147,7 @@ a:hover {
 }
 .post-item-filter i {
   margin-right: 5px;
+}
+.post-page {
+  padding: 0 10px;
 }
