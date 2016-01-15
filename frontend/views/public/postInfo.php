@@ -8,20 +8,9 @@
         Создано: <?=Yii::$app->formatter->asDate($model->published_at);?>
     </span>
     <span class="post-item-author">
-        Автор: Кирюхин А.
+        Автор: Чайцев В. Г.
     </span>
     <span class="post-item-viewed">
-        Просмотров: <?=$model->views?>
-    </span>
-</div>
-<div class="post-item-filter">
-    <span class="post-item-rubric">
-        <i class="micon-rubric"></i>Рубрика
-    </span>
-    <span class="post-item-tags">
-        <i class="micon-tag"></i>
-        <span class="post-item-tag"><a href="#">Тег1</a></span>
-        <span class="post-item-tag"><a href="#">Тег2</a></span>
-        <span class="post-item-tag"><a href="#">Тег3</a></span>
+        Просмотров: <?=$model->views?$model->views:0?>
     </span>
 </div>

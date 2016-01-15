@@ -1,3 +1,4 @@
 <?php
 return [
+    'webanalitics' => false,
 ];

@@ -6,9 +6,6 @@
 ?>
 <div class="post-page">
     <h1><?=$model->name?></h1>
-    <?if(0):?>
-        <?=$this->render('/public/postInfo', ['model' => $model])?>
-    <?endif;?>
-
+    <?=$this->render('/public/postInfo', ['model' => $model])?>
     <div class="content-data"><?=$model->content?></div>
 </div>

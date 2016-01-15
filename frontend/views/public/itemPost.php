@@ -8,9 +8,7 @@
     <div class="post-item-title">
         <a href="<?=$model->getUrl()?>"><?=$model->name?></a>
     </div>
-    <?if(0):?>
-        <?=$this->render('postInfo', ['model' => $model])?>
-    <?endif;?>
+    <?=$this->render('postInfo', ['model' => $model])?>
     <div class="post-item-text">
         <?=$model->content_short?>
     </div>
