@@ -59,30 +59,6 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 .footer-dummy { height: $heightFooter; }
 .wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 
-.image-side {
-  height: 412px;
-  background: $colorWhite;
-  margin-top: 15px;
-}
-
-.subscribe-side {
-  height: 200px;
-  background: $colorWhite;
-  margin-top: 15px;
-}
-
-.social-side {
-  height: 100px;
-  background: $colorWhite;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.social-share {
-  height 60px; margin: 15px 0;
-  background: $colorWhite;
-}
-
 .post-item {
   background: white;
   padding: 5px 5px 15px 5px;
@@ -119,4 +95,54 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   margin-top: 15px;
   background: $colorWhite;
   & .post-item-info { padding: 0; }
+}
+
+.side-block {
+  background: $colorWhite;
+  margin-top: 15px;
+  &__header { height: 65px; width: 300px; border-bottom: 4px solid $colorBorder;
+    font-size: 24px;
+    line-height: 65px;
+    text-align: center; }
+  &__content {  }
+}
+
+.icon-social {
+  &-fb {
+    display: inline-block;
+    sprite($s_icon_social_facebook);
+  }
+  &-vk {
+    display: inline-block;
+    sprite($s_icon_social_vkontakte);
+  }
+  &-tw {
+    display: inline-block;
+    sprite($s_icon_social_twitter);
+  }
+}
+
+.image-side {
+  height: 412px;
+  background: $colorWhite;
+  margin-top: 15px;
+}
+
+.subscribe-side {
+  height: 200px;
+  background: $colorWhite;
+  margin-top: 15px;
+}
+
+.social-side { margin-bottom: 15px; }
+.social-side .side-block__content {
+  padding: 20px 20px;
+  line-height: 0px;
+}
+.social-side i { margin-left: 5px; }
+.social-side i:first-child { margin-left: 0px; }
+
+.social-share {
+  height 60px; margin: 15px 0;
+  background: $colorWhite;
 }

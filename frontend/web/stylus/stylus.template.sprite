@@ -72,7 +72,7 @@ spritePosition($sprite) {
 }
 
 spriteImage($sprite) {
-  background-image: url(./../image/$sprite[8]);
+  background-image: url(./../images/$sprite[8]);
 }
 
 sprite($sprite) {

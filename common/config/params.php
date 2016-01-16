@@ -2,11 +2,10 @@
 return [
     'company.domen' => 'medclever.com',
     'company.name' => 'Medclever',
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
+    'adminEmail' => 'info@medclver.com',
+    'supportEmail' => 'info@medclever.com',
     'user.passwordResetTokenExpire' => 3600,
-    // TODO[eugen] Move the admin area as a params
-    'seoSuffix' => 'научно-исследовательская группа Физиолаб',
-    'logoTagLine' => 'Научно-исследовательская группа',
+    'seoSuffix' => 'Разумная медецина',
+    'logoTagLine' => 'Разумная медецина',
     'dateFormat' => 'dd MMMM yyyy',
 ];
