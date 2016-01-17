@@ -10,7 +10,6 @@ $this->title = 'My Yii Application';
 
         <?= ListView::widget([
             'dataProvider' => $posts,
-            'itemOptions' => ['class' => 'post-item'],
             'itemView' => '/public/itemPost',
             'layout' => '{items}{pager}',
             'emptyText' => '',

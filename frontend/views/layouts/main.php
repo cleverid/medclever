@@ -45,10 +45,9 @@ AppAsset::register($this);
     <div class="wrapper-content">
 
         <header class="header">
-            Шапка
             <a href="/"
                alt="<?=Yii::$app->params['logoTagLine']?>">
-                <div class="logo"></div>
+                <div class="header__logo"></div>
             </a>
             <?if(0):?>
                 <div class="search-box">

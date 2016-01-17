@@ -18,6 +18,15 @@ $colorFooter = #666666;
 $fontH1 = 24px;
 $fontDefault = 15px;
 
+box-shadow(args...)
+  -webkit-box-shadow args
+  -moz-box-shadow args
+  box-shadow args
+
+box-shadow-element() {
+  box-shadow: 0px 3px 6px #ddd
+}
+
 html, body { margin: 0; padding: 0; width: 100%; height: 100%;
   font-family: Arial, Tahoma;
   color: $colorGrayText;
@@ -33,10 +42,17 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 .wrapper-content { width: $widthPage; min-height: 100%; margin: 0 auto; }
 
 .header {
-  height: 120px;
+  height: 145px;
+  padding: 10px 30px;
   position: relative;
   background: $colorWhite;
-  border-bottom: 2px solid $colorBorder;
+  border-bottom: 4px solid $colorBorder;
+  box-shadow-element();
+  &__logo {
+    width: 311px;
+    height: 142px;
+    background-image: url("./../images/logo.png");
+  }
 }
 
 .column-right {
@@ -60,15 +76,16 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 .wrapper-content-foother { width: $widthPage; margin: 0 auto; }
 
 .post-item {
+  box-shadow-element();
   background: white;
-  padding: 5px 5px 15px 5px;
+  padding: 15px 15px 15px 15px;
   margin-top: 15px;
 
-  &-title {
+  &__title {
     margin-bottom: 2px;
     & * { font-size: 22px; color: darken($colorGrayText,  50%); }
   }
-  &-text {
+  &__text {
     margin-bottom: 8px;
     font-size: 18px;
 
@@ -78,26 +95,38 @@ a:hover { color: $colorBlue; text-decoration: underline; }
     }
   }
 
-  $fontRubricInfo = 13px;
-  &-info {
-    font-size: $fontRubricInfo;
-    padding: 10px 0px;
-    &>span { margin: 0 15px 0 0; }
-  }
-  &-filter {
+  &__filter {
     font-size: $fontRubricInfo; margin-bottom: 5px;
     & i { margin-right: 5px; }
   }
 }
 
+$fontRubricInfo = 14px;
+.post-info {
+  & [class="^icon"] {
+    vertical-align: top;
+    line-height: 15px;
+  }
+  &__text {
+    vertical-align: top;
+    line-height: 22px;
+    color: #AAA;
+  }
+  font-size: $fontRubricInfo;
+  padding: 10px 0px;
+  &>span { margin: 0 15px 0 0; }
+}
+
 .post-page {
-  padding: 5px 10px;
+  box-shadow-element();
+  padding: 5px 15px;
   margin-top: 15px;
   background: $colorWhite;
   & .post-item-info { padding: 0; }
 }
 
 .side-block {
+  box-shadow-element();
   background: $colorWhite;
   margin-top: 15px;
   &__header { height: 65px; width: 300px; border-bottom: 4px solid $colorBorder;
@@ -105,6 +134,21 @@ a:hover { color: $colorBlue; text-decoration: underline; }
     line-height: 65px;
     text-align: center; }
   &__content {  }
+}
+
+.icon {
+  &-author {
+    display: inline-block;
+    sprite($s_icon_author);
+  }
+  &-data {
+    display: inline-block;
+    sprite($s_icon_data);
+  }
+  &-views {
+    display: inline-block;
+    sprite($s_icon_views);
+  }
 }
 
 .icon-social {
@@ -143,6 +187,7 @@ a:hover { color: $colorBlue; text-decoration: underline; }
 .social-side i:first-child { margin-left: 0px; }
 
 .social-share {
+  box-shadow-element();
   height 60px; margin: 15px 0;
   background: $colorWhite;
 }
