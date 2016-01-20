@@ -11,6 +11,7 @@ namespace frontend\widgets\SubscribeSide;
 class SubscribeSide extends \yii\base\Widget {
 
     public function run() {
+        return false;
         echo $this->render("view");
     }
 
