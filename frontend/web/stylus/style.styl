@@ -5,13 +5,13 @@ $widthPage = 1150px;
 $widthColumnRight = 300px;
 $widthColumnCenter = $widthPage - $widthColumnRight;
 $paddingColumnCenter = 15px;
-$heightFooter = 85px;
+$heightFooter = 65px;
 
 $colorBlue = #6ebed3;
 $colorBorder = #67a4de;
 $colorWhite = #ffffff;
 $colorGray = #afafaf;
-$colorGrayText = #5f5f5f;
+$colorGrayText = #444;
 $colorLink = $colorBlue;
 $colorFooter = #666666;
 
@@ -68,7 +68,7 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   $footer-color = #626262;
   $footer-font-size = 18px;
   height: $heightFooter; width: $widthPage; margin-top: -($heightFooter);
-  padding: 53px 0 0 13px; box-sizing: border-box;
+  padding: 33px 0 0 13px; box-sizing: border-box;
   font-size: $footer-font-size;
   & a { color: $colorWhite; }
 }
@@ -122,7 +122,17 @@ $fontRubricInfo = 14px;
   padding: 5px 15px;
   margin-top: 15px;
   background: $colorWhite;
-  & .post-item-info { padding: 0; }
+  & h1 {
+    color: #222;
+    font: 30px/118% normal Verdana,Tahoma,sans-serif;
+  }
+  & .post-info { padding: 0 0 3px 0; }
+  &__data {
+    &>p { margin: 13px 0; }
+    font-size: 17px;
+    line-height: 25px;
+    color: #333;
+  }
 }
 
 .side-block {

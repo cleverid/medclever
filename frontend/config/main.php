@@ -22,6 +22,7 @@ return [
                 'publish-view-inc/<id:\d+>' => 'publishing/viewinc',
                 'rubric/<url>' => 'rubric/view',
                 'post/<url>' => 'post/view',
+                'post/countup/<id:\d>' => 'post/countup',
                  // short url
                 '/<url>' => 'rubric/view',
                 '<controller>/<action>' => '<controller>/<action>',

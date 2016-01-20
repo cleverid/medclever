@@ -6,6 +6,7 @@ use common\components\BBCode\BBCodeBehavior;
 use frontend\models\interfaces\ISEO;
 use Yii;
 use yii\helpers\StringHelper;
+use yii\web\View;
 
 /**
  * This is the model class for table "{{%post}}".
@@ -85,6 +86,44 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
         } else {
             return StringHelper::truncateWords(strip_tags($this->content_short), 30, '');
         }
+    }
+
+    /**
+     * Проссматривал ли пользователь статью
+     * @return bool
+     */
+    public function isViewed() {
+        return !empty(Yii::$app->session->get('post_viewed'));
+    }
+
+    /**
+     * Установка значения проссмотра статьи
+     * @param int $value
+     */
+    public function setViewed($value) {
+        Yii::$app->session->set('post_viewed', (int)$value);
+    }
+
+    /**
+     * Увеличивает ко-во проссмотров на 1-у
+     * @throws \Exception
+     */
+    public function viewsCountUp() {
+        $this->views++;
+        $this->update();
+    }
+
+    /**
+     * @param View $view
+     */
+    public function viewsRegistrJSIncrimenter($view) {
+        $script = <<<JS
+            setTimeout(function() {
+                $.get('/post/countup/{$this->id}')
+            }, 5000);
+JS;
+
+        $view->registerJs($script, View::POS_READY, 'post_counter_script');
     }
 
     // ========================================================================

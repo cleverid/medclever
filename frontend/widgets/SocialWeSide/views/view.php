@@ -4,7 +4,9 @@
         <a href="https://vk.com/medclever" target="_blank">
             <i class="icon-social-vk"></i>
         </a>
-        <i class="icon-social-fb"></i>
-        <i class="icon-social-tw"></i>
+        <?if(0):?>
+            <i class="icon-social-fb"></i>
+            <i class="icon-social-tw"></i>
+        <?endif;?>
     </div>
 </div>
