@@ -24,6 +24,12 @@ class Controller extends \yii\web\Controller {
     }
 
     public function beforeAction($action) {
+
+        // redirect on pocketdoctor
+        if(preg_match('~^\/(en|ru)\/?$~', \Yii::$app->request->url, $match)) {
+            $this->redirect('//pocketdoctor.medclever.com/'.$match[1], 301);
+        }
+
         $this->seoSuffix = \Yii::$app->params['seoSuffix'];
         $controller = $this;
         $this->view->on(View::EVENT_BEFORE_RENDER, function($event) use ($controller){
