@@ -68,6 +68,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $this->seoDescription =
+            "Сайт посвящен современным подходам к формированию
+            и оценке образа жизни, рациональному поведению при первой помощи в
+            неотложных ситуациях, развенчанию бытовых мифов и предрассудков.";
+
         $posts = new ActiveDataProvider([
             'query' => Post::find()
                 ->active()
