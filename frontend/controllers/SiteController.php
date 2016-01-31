@@ -70,9 +70,10 @@ class SiteController extends Controller
     {
         $posts = new ActiveDataProvider([
             'query' => Post::find()
-                ->active(),
+                ->active()
+                ->orderBy(['published_at' => SORT_DESC]),
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => 10,
             ],
         ]);
 
