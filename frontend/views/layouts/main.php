@@ -78,7 +78,7 @@ AppAsset::register($this);
     </div>
     <div class="wrapper-content-foother">
         <footer class="footer">
-            Редакция сайта: <a href="mailto:info@medclever.com">info@medclever.com</a>
+            Редакция сайта: <a href="mailto:<?=Yii::$app->params['supportEmail']?>"><?=Yii::$app->params['supportEmail']?></a>
         </footer>
     </div>
 
