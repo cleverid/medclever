@@ -93,7 +93,7 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
      * @return bool
      */
     public function isViewed() {
-        return !empty(Yii::$app->session->get('post_viewed'));
+        return !empty(Yii::$app->session->get('post_viewed_'.$this->id));
     }
 
     /**
@@ -101,7 +101,7 @@ class Post extends \yii\db\ActiveRecord implements  ISEO
      * @param int $value
      */
     public function setViewed($value) {
-        Yii::$app->session->set('post_viewed', (int)$value);
+        Yii::$app->session->set('post_viewed_'.$this->id, (int)$value);
     }
 
     /**
