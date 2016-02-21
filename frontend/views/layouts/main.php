@@ -79,6 +79,9 @@ AppAsset::register($this);
     <div class="wrapper-content-foother">
         <footer class="footer">
             Редакция сайта: <a href="mailto:<?=Yii::$app->params['supportEmail']?>"><?=Yii::$app->params['supportEmail']?></a>
+            <div class="statistics-counter">
+                <!--LiveInternet counter--><script type="text/javascript">document.write("<a href='//www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t14.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=88 height=31 alt='' title='LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня'><\/a>")</script><!--/LiveInternet-->
+            </div>
         </footer>
     </div>
 

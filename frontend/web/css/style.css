@@ -96,7 +96,7 @@ a:hover {
   height: 65px;
   width: 1150px;
   margin-top: -65px;
-  padding: 33px 0 0 13px;
+  padding: 24px 0 0 13px;
   box-sizing: border-box;
   font-size: 18px;
 }
@@ -298,4 +298,8 @@ a:hover {
 }
 .twitter-share-button {
   margin-left: -10px;
+}
+.statistics-counter {
+  margin: -6px 15px 0 0;
+  float: right;
 }
