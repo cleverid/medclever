@@ -15,5 +15,14 @@ $this->title = 'My Yii Application';
             'emptyText' => '',
         ]) ?>
 
+        <div class="about-info">
+            <h1 class="about-info__header">Разумная медицина</h1>
+            <span class="about-info__text">
+                - современные подходы к формированию
+                и оценке образа жизни, рациональное поведение при первой помощи в
+                неотложных ситуациях, развенчание бытовых мифов и предрассудков.
+            </span>
+        </div>
+
     </div>
 </div>

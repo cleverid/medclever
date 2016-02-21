@@ -41,8 +41,9 @@ html {
   background: url("./../images/bg-fon.jpg");
 }
 h1 {
-  color: #6ebed3;
   font-size: 24px;
+  color: #222;
+  font: 28px/118% normal Verdana, Tahoma, sans-serif;
 }
 h2 {
   color: #222;
@@ -109,6 +110,20 @@ a:hover {
   width: 1150px;
   margin: 0 auto;
 }
+.about-info {
+  -webkit-box-shadow: 0px 3px 6px #ddd;
+  -moz-box-shadow: 0px 3px 6px #ddd;
+  box-shadow: 0px 3px 6px #ddd;
+  background: #fff;
+  margin-top: 15px;
+  padding: 15px;
+  line-height: 24px;
+}
+.about-info__header {
+  font-size: 20px;
+  display: inline-block;
+  margin: 0;
+}
 .post-item {
   -webkit-box-shadow: 0px 3px 6px #ddd;
   -moz-box-shadow: 0px 3px 6px #ddd;
@@ -127,6 +142,7 @@ a:hover {
 .post-item__text {
   margin-bottom: 8px;
   font-size: 18px;
+  line-height: 24px;
 }
 .post-item__text > p {
   padding: 0;
