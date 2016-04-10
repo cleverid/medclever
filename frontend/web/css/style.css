@@ -212,21 +212,21 @@ a:hover {
 .icon-author {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -50px -50px;
+  background-position: -100px 0px;
   width: 20px;
   height: 20px;
 }
 .icon-data {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -70px -50px;
+  background-position: -100px -20px;
   width: 20px;
   height: 20px;
 }
 .icon-views {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -50px -70px;
+  background-position: -100px -40px;
   width: 20px;
   height: 20px;
 }
@@ -240,11 +240,18 @@ a:hover {
 .icon-social-vk {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: 0px -50px;
+  background-position: -50px -50px;
   width: 50px;
   height: 50px;
 }
 .icon-social-tw {
+  display: inline-block;
+  background-image: url("./../images/sprite.png");
+  background-position: 0px -50px;
+  width: 50px;
+  height: 50px;
+}
+.icon-social-ok {
   display: inline-block;
   background-image: url("./../images/sprite.png");
   background-position: -50px 0px;
@@ -262,8 +269,8 @@ a:hover {
   margin-top: 15px;
 }
 .social-side {
-  margin-bottom: 15px;
   font-size: 0;
+  box-sizing: border-box;
 }
 .social-side .side-block__content {
   padding: 20px 20px;

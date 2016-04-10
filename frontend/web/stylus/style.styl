@@ -191,6 +191,10 @@ $fontRubricInfo = 14px;
     display: inline-block;
     sprite($s_icon_social_twitter);
   }
+  &-ok {
+    display: inline-block;
+    sprite($s_icon_social_ok);
+  }
 }
 
 .image-side {
@@ -205,13 +209,21 @@ $fontRubricInfo = 14px;
   margin-top: 15px;
 }
 
-.social-side { margin-bottom: 15px; font-size: 0; }
-.social-side .side-block__content {
-  padding: 20px 20px;
-  line-height: 0px;
+.social-side {
+  font-size: 0;
+  box-sizing: border-box;
+
+  & .side-block__content {
+    padding: 20px 20px;
+    line-height: 0px;
+  }
+  & i {
+    margin-left: 20px;
+  }
+  & a:first-child i {
+    margin-left: 0px;
+  }
 }
-.social-side i { margin-left: 20px; }
-.social-side a:first-child i { margin-left: 0px; }
 
 .social-share {
   box-shadow-element();
