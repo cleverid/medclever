@@ -183,6 +183,9 @@ a:hover {
   color: #222;
   font: 30px/118% normal Verdana, Tahoma, sans-serif;
 }
+.post-page a {
+  color: #6ebed3 !important;
+}
 .post-page .post-info {
   padding: 0 0 3px 0;
 }
