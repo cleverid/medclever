@@ -1,0 +1,33 @@
+@require "gui.styl";
+@require "colors.styl";
+
+.library-page {
+  box-shadow-element();
+  padding: 5px 15px;
+  margin-top: 15px;
+  background: $colorWhite;
+  
+  & h1 {
+    color: #222;
+    font: 30px/118% normal Verdana,Tahoma,sans-serif;
+  }
+  & a { color: $colorBlue!important; }
+  & .post-info { padding: 0 0 3px 0; }
+  &__content {
+    &>p { margin: 13px 0; }
+    font-size: 17px;
+    line-height: 25px;
+    color: #333;
+  }
+    
+  &__book {
+    margin-bottom: 15px;
+    
+    &-title { font-size: 18px; }
+    &-author {
+      font-size: 14px;
+      color: grey;
+    }
+  }
+    
+}

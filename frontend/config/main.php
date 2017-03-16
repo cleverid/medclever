@@ -23,6 +23,7 @@ return [
                 'rubric/<url>' => 'rubric/view',
                 'post/<url>' => 'post/view',
                 'post/countup/<id:\d>' => 'post/countup',
+                'library' => 'site/library',
                  // short url
                 '/<url>' => 'rubric/view',
                 '<controller>/<action>' => '<controller>/<action>',

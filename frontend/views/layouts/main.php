@@ -1,6 +1,7 @@
 <?php
 use frontend\assets\LockFixedAsset;
 use frontend\widgets\MenuSide\MenuSide;
+use Yii;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
@@ -59,6 +60,20 @@ LockFixedAsset::register($this);
                     </form>
                 </div>
             <?endif;?>
+            
+            <?$isLibrary = preg_match("/library/", \Yii::$app->request->url)?>
+            <div class="header-menu">
+                <div class="header-menu__item <?=!$isLibrary?"header-menu__item--active":""?>">
+                    <a href="/">
+                        Статьи
+                    </a>
+                </div>
+                <div class="header-menu__item <?=$isLibrary?"header-menu__item--active":""?>">
+                    <a href="/library">
+                        Литература
+                    </a>
+                </div>
+            </div>
         </header>
 
         <div class="column-right">

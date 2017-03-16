@@ -25,6 +25,71 @@
   width: ;
   height: ;
 }
+.library-page {
+  -webkit-box-shadow: 0px 3px 6px #ddd;
+  -moz-box-shadow: 0px 3px 6px #ddd;
+  box-shadow: 0px 3px 6px #ddd;
+  padding: 5px 15px;
+  margin-top: 15px;
+  background: #fff;
+}
+.library-page h1 {
+  color: #222;
+  font: 30px/118% normal Verdana, Tahoma, sans-serif;
+}
+.library-page a {
+  color: #6ebed3 !important;
+}
+.library-page .post-info {
+  padding: 0 0 3px 0;
+}
+.library-page__content {
+  font-size: 17px;
+  line-height: 25px;
+  color: #333;
+}
+.library-page__content>p {
+  margin: 13px 0;
+}
+.library-page__book {
+  margin-bottom: 15px;
+}
+.library-page__book-title {
+  font-size: 18px;
+}
+.library-page__book-author {
+  font-size: 14px;
+  color: #808080;
+}
+.header-menu {
+  font-size: 0;
+  background: #fff;
+  margin-top: 23px;
+}
+.header-menu__item {
+  display: inline-block;
+  height: 45px;
+  vertical-align: middle;
+  font-size: 20px;
+  background: #fff;
+  color: #444 !important;
+}
+.header-menu__item a {
+  line-height: 45px;
+  padding: 0 15px;
+  display: block;
+  color: #444 !important;
+  text-decoration: none !important;
+}
+.header-menu__item--active,
+.header-menu__item:hover {
+  background: #67a4de;
+  color: #fff !important;
+}
+.header-menu__item--active a,
+.header-menu__item:hover a {
+  color: #fff !important;
+}
 html,
 body {
   margin: 0;
@@ -65,8 +130,8 @@ a:hover {
   margin: 0 auto;
 }
 .header {
-  height: 145px;
-  padding: 10px 30px;
+  height: 210px;
+  padding-top: 10px;
   position: relative;
   background: #fff;
   border-bottom: 4px solid #67a4de;
@@ -77,7 +142,9 @@ a:hover {
 .header__logo {
   width: 311px;
   height: 142px;
+  margin-left: 30px;
   background-image: url("./../images/logo.png");
+  background-repeat: no-repeat;
 }
 .column-right {
   float: right;

@@ -128,6 +128,11 @@ class SiteController extends Controller
         }
     }
 
+    public function actionLibrary()
+    {
+        return $this->render('library');
+    }
+
     public function actionAbout()
     {
         return $this->render('about');
