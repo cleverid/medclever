@@ -90,6 +90,24 @@
 .header-menu__item:hover a {
   color: #fff !important;
 }
+.important-info {
+  border: 2px solid #e7873c;
+  padding: 15px 15px 15px 80px;
+  border-radius: 4px;
+  position: relative;
+  min-height: 100px;
+}
+.important-info:before {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  content: "";
+  display: inline-block;
+  background-image: url("./../images/sprite.png");
+  background-position: 0px 0px;
+  width: 70px;
+  height: 70px;
+}
 html,
 body {
   margin: 0;
