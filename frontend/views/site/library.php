@@ -1,5 +1,5 @@
 <div class="library-page">
-    <h1>Литература</h1>
+    <h1>Книги</h1>
     <div class="library-page__content">
         <div class="library-page__book">
             <div class="library-page__book-title">

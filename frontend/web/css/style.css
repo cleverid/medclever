@@ -282,49 +282,49 @@ a:hover {
 .icon-author {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -100px 0px;
+  background-position: -120px -50px;
   width: 20px;
   height: 20px;
 }
 .icon-data {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -100px -20px;
+  background-position: -140px -50px;
   width: 20px;
   height: 20px;
 }
 .icon-views {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -100px -40px;
+  background-position: -120px -70px;
   width: 20px;
   height: 20px;
 }
 .icon-social-fb {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: 0px 0px;
+  background-position: -70px 0px;
   width: 50px;
   height: 50px;
 }
 .icon-social-vk {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -50px -50px;
+  background-position: -120px 0px;
   width: 50px;
   height: 50px;
 }
 .icon-social-tw {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: 0px -50px;
+  background-position: -50px -70px;
   width: 50px;
   height: 50px;
 }
 .icon-social-ok {
   display: inline-block;
   background-image: url("./../images/sprite.png");
-  background-position: -50px 0px;
+  background-position: 0px -70px;
   width: 50px;
   height: 50px;
 }

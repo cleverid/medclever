@@ -70,7 +70,7 @@ LockFixedAsset::register($this);
                 </div>
                 <div class="header-menu__item <?=$isLibrary?"header-menu__item--active":""?>">
                     <a href="/library">
-                        Литература
+                        Книги
                     </a>
                 </div>
             </div>
