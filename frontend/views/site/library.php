@@ -15,7 +15,7 @@
         <div class="library-page__book">
             <div class="library-page__book-title">
                 Оценка и самооценка основных факторов,
-                влияющих на здоровье учеников основной
+                влияющих на здоровье учеников основной и средней
                 школы
             </div>
             <div class="library-page__book-author">Чайцев В. Г.</div>

@@ -5,6 +5,7 @@
 @require 'library.styl'
 @require 'menu.styl'
 @require 'ui.styl'
+@require 'post.styl'
 
 $widthPage = 1150px;
 $widthColumnRight = 300px;
@@ -109,40 +110,7 @@ a:hover { color: $colorBlue; text-decoration: underline; }
   }
 }
 
-$fontRubricInfo = 14px;
-.post-info {
-  & [class="^icon"] {
-    vertical-align: top;
-    line-height: 15px;
-  }
-  &__text {
-    vertical-align: top;
-    line-height: 22px;
-    color: #AAA;
-  }
-  font-size: $fontRubricInfo;
-  padding: 10px 0px;
-  &>span { margin: 0 15px 0 0; }
-}
 
-.post-page {
-  box-shadow-element();
-  padding: 5px 15px;
-  margin-top: 15px;
-  background: $colorWhite;
-  & h1 {
-    color: #222;
-    font: 30px/118% normal Verdana,Tahoma,sans-serif;
-  }
-  & a { color: $colorBlue!important; }
-  & .post-info { padding: 0 0 3px 0; }
-  &__data {
-    &>p { margin: 13px 0; }
-    font-size: 17px;
-    line-height: 25px;
-    color: #333;
-  }
-}
 
 .side-block {
   box-shadow-element();

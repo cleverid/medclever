@@ -1,5 +1,6 @@
 
 @require 'sprite'
+@require "colors.styl"
 
 .important-info {
   border: 2px solid #E7873C;
@@ -14,5 +15,19 @@
     content: "";
     display: inline-block;
     sprite($s_icon_important)
+  }
+}
+
+.success-info {
+  border: 2px solid $colorBlue;
+  padding: 15px 15px 15px 15px;
+  border-radius: 4px;
+  position: relative;
+  min-height: 100px;
+  display: inline-block;
+
+  &:after {
+    content: "";
+    clear: both;
   }
 }

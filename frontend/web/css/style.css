@@ -108,6 +108,65 @@
   width: 70px;
   height: 70px;
 }
+.success-info {
+  border: 2px solid #6ebed3;
+  padding: 15px 15px 15px 15px;
+  border-radius: 4px;
+  position: relative;
+  min-height: 100px;
+  display: inline-block;
+}
+.success-info:after {
+  content: "";
+  clear: both;
+}
+.post-info {
+  font-size: 14px;
+  padding: 10px 0;
+}
+.post-info [class="^icon"] {
+  vertical-align: top;
+  line-height: 15px;
+}
+.post-info__text {
+  vertical-align: top;
+  line-height: 22px;
+  color: #aaa;
+}
+.post-info>span {
+  margin: 0 15px 0 0;
+}
+.post-page {
+  -webkit-box-shadow: 0px 3px 6px #ddd;
+  -moz-box-shadow: 0px 3px 6px #ddd;
+  box-shadow: 0px 3px 6px #ddd;
+  padding: 5px 15px;
+  margin-top: 15px;
+  background: #fff;
+}
+.post-page h1 {
+  color: #222;
+  font: 30px/118% normal Verdana, Tahoma, sans-serif;
+}
+.post-page a {
+  color: #6ebed3 !important;
+}
+.post-page .post-info {
+  padding: 0 0 3px 0;
+}
+.post-page__data {
+  font-size: 17px;
+  line-height: 25px;
+  color: #333;
+}
+.post-page__data>p {
+  margin: 13px 0;
+}
+.post-image {
+  float: left;
+  width: 300px;
+  margin: 0 15px 15px 0;
+}
 html,
 body {
   margin: 0;
@@ -239,48 +298,6 @@ a:hover {
 }
 .post-item__filter i {
   margin-right: 5px;
-}
-.post-info {
-  font-size: 14px;
-  padding: 10px 0px;
-}
-.post-info [class="^icon"] {
-  vertical-align: top;
-  line-height: 15px;
-}
-.post-info__text {
-  vertical-align: top;
-  line-height: 22px;
-  color: #aaa;
-}
-.post-info>span {
-  margin: 0 15px 0 0;
-}
-.post-page {
-  -webkit-box-shadow: 0px 3px 6px #ddd;
-  -moz-box-shadow: 0px 3px 6px #ddd;
-  box-shadow: 0px 3px 6px #ddd;
-  padding: 5px 15px;
-  margin-top: 15px;
-  background: #fff;
-}
-.post-page h1 {
-  color: #222;
-  font: 30px/118% normal Verdana, Tahoma, sans-serif;
-}
-.post-page a {
-  color: #6ebed3 !important;
-}
-.post-page .post-info {
-  padding: 0 0 3px 0;
-}
-.post-page__data {
-  font-size: 17px;
-  line-height: 25px;
-  color: #333;
-}
-.post-page__data>p {
-  margin: 13px 0;
 }
 .side-block {
   -webkit-box-shadow: 0px 3px 6px #ddd;

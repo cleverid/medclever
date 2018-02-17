@@ -30,23 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            [
-                'format' => 'raw',
-                'attribute' => 'image_file',
-                'value' => !empty($model->image_file)
-                    ?Html::img($model->image_file, ['style' => 'max-width:300px; max-height: 300px;'])
-                    :'',
-            ],
-            [
-                'attribute' => 'url',
-                'format' => 'raw',
-                'value' => Html::a($model->url, $model->getUrl(true)),
-            ],
-            'description_short:html',
+            'url:url',
             'description:html',
             'meta_title',
             'meta_description',
-            'active',
             'created_at',
             'updated_at',
         ],
