@@ -1,11 +1,13 @@
 <?php
+
+$mysqlHost = getenv("MYSQL_HOST");
 return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
-            'username' => 'root',
-            'password' => '',
+            'dsn' => "mysql:host=$mysqlHost;dbname=yii2advanced",
+            'username' => getenv("MYSQL_USER"),
+            'password' => getenv("MYSQL_PASSWORD"),
             'charset' => 'utf8',
         ],
         'mailer' => [
