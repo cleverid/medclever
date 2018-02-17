@@ -16,7 +16,7 @@ services:
   mysql:
     build: ./docker/mariadb
     volumes:
-      - my-datavolume:/var/lib/mysql
+      - data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
     restart: always
@@ -32,4 +32,4 @@ services:
     restart: always
 
 volumes:
-  my-datavolume:
+  data:

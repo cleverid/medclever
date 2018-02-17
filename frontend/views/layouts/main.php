@@ -1,7 +1,6 @@
 <?php
 use frontend\assets\LockFixedAsset;
 use frontend\widgets\MenuSide\MenuSide;
-use Yii;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
