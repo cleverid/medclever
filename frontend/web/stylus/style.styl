@@ -1,0 +1,211 @@
+@require 'icons.styl'
+@require 'sprite.styl'
+@require 'colors.styl'
+@require 'gui.styl'
+@require 'library.styl'
+@require 'menu.styl'
+@require 'ui.styl'
+@require 'post.styl'
+
+$widthPage = 1150px;
+$widthColumnRight = 300px;
+$widthColumnCenter = $widthPage - $widthColumnRight;
+$paddingColumnCenter = 15px;
+$heightFooter = 65px;
+
+$fontH1 = 24px;
+$fontH2 = 22px;
+$fontDefault = 15px;
+
+
+html, body { margin: 0; padding: 0; width: 100%; height: 100%;
+  font-family: Arial, Tahoma;
+  color: $colorGrayText;
+}
+html * { color: $colorGrayText; }
+html { background: url("./../images/bg-fon.jpg"); }
+
+h1 {
+  font-size: $fontH1;
+  color: #222;
+  font: 28px/118% normal Verdana,Tahoma,sans-serif;
+}
+h2 { color: #222; font-size: $fontH2; font-weight: 100; }
+
+a { color: $colorGray; text-decoration: none; transition:color 0.3s ease; }
+a:hover { color: $colorBlue; text-decoration: underline; }
+
+.wrapper-content { width: $widthPage; min-height: 100%; margin: 0 auto; }
+
+.header {
+  height: 210px;
+  padding-top: 10px;
+  position: relative;
+  background: $colorWhite;
+  border-bottom: 4px solid $colorBorder;
+  box-shadow-element();
+  &__logo {
+    width: 311px;
+    height: 142px;
+    margin-left: 30px;
+    background-image: url("./../images/logo.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.column-right {
+  float: right;
+  box-sizing: border-box; width: $widthColumnRight; }
+.column-center {
+  width: $widthColumnCenter; padding-right: $paddingColumnCenter;
+  box-sizing: border-box;
+  float: right;  }
+.footer {
+  color: $colorWhite;
+  background: $colorFooter;
+  $footer-color = #626262;
+  $footer-font-size = 18px;
+  height: $heightFooter; width: $widthPage; margin-top: -($heightFooter);
+  padding: 24px 0 0 13px; box-sizing: border-box;
+  font-size: $footer-font-size;
+  & a { color: $colorWhite; }
+}
+.footer-dummy { height: $heightFooter; }
+.wrapper-content-foother { width: $widthPage; margin: 0 auto; }
+
+.about-info {
+  box-shadow-element();
+  background: white;
+  margin-top: 15px;
+  padding: 15px;
+  line-height: 24px;
+  &__header { font-size: 20px; display: inline-block; margin: 0; }
+  &__text {  }
+}
+
+.post-item {
+  box-shadow-element();
+  background: white;
+  padding: 15px 15px 15px 15px;
+  margin-top: 15px;
+
+  &__title {
+    margin-bottom: 2px;
+    & * { font-size: 22px; color: darken($colorGrayText,  50%); }
+  }
+  &__text {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 24px;
+
+    & > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__filter {
+    font-size: $fontRubricInfo; margin-bottom: 5px;
+    & i { margin-right: 5px; }
+  }
+}
+
+
+
+.side-block {
+  box-shadow-element();
+  background: $colorWhite;
+  margin-top: 15px;
+  &__header { height: 65px; width: 300px; border-bottom: 4px solid $colorBorder;
+    font-size: 24px;
+    line-height: 65px;
+    text-align: center; }
+  &__content {  }
+}
+
+.icon {
+  &-author {
+    display: inline-block;
+    sprite($s_icon_author);
+  }
+  &-data {
+    display: inline-block;
+    sprite($s_icon_data);
+  }
+  &-views {
+    display: inline-block;
+    sprite($s_icon_views);
+  }
+}
+
+.icon-social {
+  &-fb {
+    display: inline-block;
+    sprite($s_icon_social_facebook);
+  }
+  &-vk {
+    display: inline-block;
+    sprite($s_icon_social_vkontakte);
+  }
+  &-tw {
+    display: inline-block;
+    sprite($s_icon_social_twitter);
+  }
+  &-ok {
+    display: inline-block;
+    sprite($s_icon_social_ok);
+  }
+}
+
+.image-side {
+  height: 412px;
+  background: $colorWhite;
+  margin-top: 15px;
+}
+
+.subscribe-side {
+  height: 200px;
+  background: $colorWhite;
+  margin-top: 15px;
+}
+
+.social-side {
+  font-size: 0;
+  box-sizing: border-box;
+
+  & .side-block__content {
+    padding: 20px 20px;
+    line-height: 0px;
+  }
+  & i {
+    margin-left: 20px;
+  }
+  & a:first-child i {
+    margin-left: 0px;
+  }
+}
+
+.social-share {
+  box-shadow-element();
+  height 20px; margin: 15px 0;
+  background: $colorWhite;
+  padding: 15px;
+  &__title {
+    vertical-align: top;
+    line-height: 21px;
+    margin-right: 10px;
+  }
+}
+.fb-like, .vk_like, #ok_shareWidget {
+  display: inline-block!important;
+  vertical-align: top;
+  width: 150px!important;
+}
+.twitter-share-button {
+  margin-left: -10px;
+}
+
+.statistics-counter {
+  margin: -6px 15px 0 0;
+  float: right;
+}

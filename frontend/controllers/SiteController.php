@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Post;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -8,8 +9,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
+use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
@@ -67,7 +68,23 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->seoDescription =
+            "Сайт посвящен современным подходам к формированию
+            и оценке образа жизни, рациональному поведению при первой помощи в
+            неотложных ситуациях, развенчанию бытовых мифов и предрассудков.";
+
+        $posts = new ActiveDataProvider([
+            'query' => Post::find()
+                ->active()
+                ->orderBy(['published_at' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('index', array(
+            'posts' => $posts
+        ));
     }
 
     public function actionLogin()
@@ -109,6 +126,11 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionLibrary()
+    {
+        return $this->render('library');
     }
 
     public function actionAbout()

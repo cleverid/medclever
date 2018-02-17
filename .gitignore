@@ -29,5 +29,10 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+# vagrant
+/.vagrant
 
-node_modules/
+node_modules
+frontend/web/stylus/sprite.styl
+
+frontend/web/robots.txt

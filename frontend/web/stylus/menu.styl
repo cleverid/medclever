@@ -1,0 +1,33 @@
+@require "colors.styl";
+
+$menuHeight = 45px;
+$menuHeightFont = 20px;
+
+.header-menu {
+  font-size: 0;
+  background: $colorWhite;
+  margin-top: 23px;
+  
+  &__item {
+    display: inline-block;
+    height: $menuHeight; $menuHeight;
+    vertical-align: middle;
+    font-size: $menuHeightFont;
+    background: $colorWhite;
+    
+    color: #444!important;
+    & a {
+      line-height: $menuHeight;
+      padding: 0 15px;
+      display block;
+      color: #444!important;
+      text-decoration: none!important;
+    }
+    &--active,
+    &:hover {
+      background: $colorBorder
+      color: $colorWhite!important
+      & a { color: $colorWhite!important }
+    }
+  }
+}

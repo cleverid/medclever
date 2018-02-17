@@ -17,7 +17,16 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "letyii/yii2-tinymce": "1.0",
+        "tinymce/tinymce": "4.1.*",
+        "creocoder/yii2-nested-sets": "0.9.*",
+        "mihaildev/yii2-elfinder": "*",
+        "2amigos/yii2-date-picker-widget" : "~1.0",
+        "2amigos/yii2-date-time-picker-widget" : "~1.0",
+        "bower-asset/photoswipe": "4.1.*",
+        "bupy7/yii2-bbcode": "1.*",
+        "himiklab/yii2-easy-thumbnail-image-helper" : "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
