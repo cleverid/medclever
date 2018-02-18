@@ -8,6 +8,19 @@ services:
     volumes:
      - .:/var/www
     environment:
+      APP_MODE: frontend
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  app_backend:
+    build: .
+    ports:
+     - 10001:80
+    volumes:
+     - .:/var/www
+    environment:
+      APP_MODE: backend
       MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_PASSWORD: root
