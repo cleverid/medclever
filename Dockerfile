@@ -54,4 +54,6 @@ RUN set -x \
     && find /var/www -type d -exec chmod 750 {} \; \
     && find /var/www -type f -exec chmod 640 {} \; \
     && chmod 777 -R /var/www/frontend/runtime \
-    && chmod 777 -R /var/www/frontend/web/assets
+    && chmod 777 -R /var/www/frontend/web/assets \
+    && chmod 777 -R /var/www/backend/runtime \
+    && chmod 777 -R /var/www/backend/web/assets
