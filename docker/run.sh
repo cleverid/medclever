@@ -8,8 +8,8 @@ touch /var/log/php-fpm.log
 chown nobody:nobody /var/log/php-fpm.log
 
 # SET APP_MODE to template
-if [ "$APP_MODE" != "frontend" ]; then
-    APP_MODE=backend
+if [ "$APP_MODE" != "backend" ]; then
+    APP_MODE=frontend
 fi
 envsubst '$$APP_MODE' < /etc/nginx.template > /etc/nginx.conf;
 
