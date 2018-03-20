@@ -24,5 +24,15 @@
                 <a href="/files/books/ocenka-i-samoocenka-factorov.pdf">скачать</a>
             </div>
         </div>
+        <div class="library-page__book">
+            <div class="library-page__book-title">
+                Формирование образа жизни и здоровья
+            </div>
+            <div class="library-page__book-author">Чайцев В. Г.</div>
+            <div class="library-page__book-description"></div>
+            <div class="library-page__book-download">
+                <a href="/files/books/chaycev-formirovanie-obraza-zhizni-i-zdorovja.pdf">скачать</a>
+            </div>
+        </div>
     </div>
 </div>
