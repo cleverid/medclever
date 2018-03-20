@@ -26,7 +26,7 @@
         </div>
         <div class="library-page__book">
             <div class="library-page__book-title">
-                Формирование образа жизни и здоровья
+                Формирование образа жизни и здоровья в семье и школе
             </div>
             <div class="library-page__book-author">Чайцев В. Г.</div>
             <div class="library-page__book-description"></div>
