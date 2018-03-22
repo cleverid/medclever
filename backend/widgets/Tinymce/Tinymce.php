@@ -21,7 +21,7 @@ class Tinymce extends \letyii\tinymce\Tinymce {
         $this->registrScript();
 
         $this->configs = ArrayHelper::merge([
-            'language' => 'ru',
+//            'language' => 'ru',
             'menubar' => false,
             'plugins' => ["link", "image", "code", 'fullscreen'],
             'relative_urls' => true,
