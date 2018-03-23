@@ -120,6 +120,44 @@
   content: "";
   clear: both;
 }
+.pagination {
+  -webkit-box-shadow: 0px 3px 6px #ddd;
+  -moz-box-shadow: 0px 3px 6px #ddd;
+  box-shadow: 0px 3px 6px #ddd;
+  font-size: 0;
+  padding: 15px 0;
+  padding-left: 15px;
+  margin: 10px 0;
+  background: #fff;
+}
+.pagination li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.pagination li:last-child {
+  border-radius: 0 5px 5px 0;
+  border-right: 1.5px solid #6ebed3;
+}
+.pagination li a,
+.pagination li span {
+  color: #777;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  min-width: 40px;
+}
+.pagination li.active {
+  background: rgba(103,164,222,0.3);
+}
+.pagination li {
+  display: inline-block;
+  text-align: center;
+  border: 1.5px solid #67a4de;
+  font-size: 20px;
+  border-right: none;
+}
+.pagination .disabled {
+  opacity: 0.5;
+}
 .post-info {
   font-size: 14px;
   padding: 10px 0;
