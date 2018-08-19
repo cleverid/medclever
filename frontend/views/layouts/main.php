@@ -38,6 +38,11 @@ LockFixedAsset::register($this);
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <?if(Yii::$app->params['webanalitics']):?>
+        <!-- Пиксель от vk.com -->
+        <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-274433-9LRi"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-274433-9LRi" style="position:fixed; left:-999px;" alt=""/></noscript>
+    <?endif;?>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
 </head>
@@ -117,9 +122,6 @@ LockFixedAsset::register($this);
             ga('send', 'pageview');
 
         </script>
-
-        <!-- Пиксель от vk.com -->
-        <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-274433-9LRi"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-274433-9LRi" style="position:fixed; left:-999px;" alt=""/></noscript>
     <?endif;?>
 
     <?php $this->endBody() ?>
