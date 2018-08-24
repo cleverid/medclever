@@ -27,7 +27,8 @@
         "bower-asset/photoswipe": "4.1.*",
         "bupy7/yii2-bbcode": "1.*",
         "himiklab/yii2-easy-thumbnail-image-helper" : "*",
-        "janisto/yii2-timepicker": "*"
+        "janisto/yii2-timepicker": "*",
+        "nesbot/carbon": "^1.33"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

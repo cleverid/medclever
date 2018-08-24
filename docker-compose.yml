@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-     - 10000:80
+     - 12000:80
     volumes:
      - .:/var/www
     environment:
@@ -16,7 +16,7 @@ services:
   app_backend:
     build: .
     ports:
-     - 10001:80
+     - 12001:80
     volumes:
      - .:/var/www
     environment:
@@ -39,7 +39,7 @@ services:
     links:
       - mysql
     ports:
-     - 10010:80
+     - 12010:80
     environment:
       PMA_HOST: mysql
     restart: always

@@ -20,4 +20,9 @@ class PostQuery extends \yii\db\ActiveQuery
         $this->andWhere(['active' => $state]);
         return $this;
     }
+
+    public function published() {
+        $this->active()->orderBy(["published_at" => SORT_DESC]);
+        return $this;
+    }
 }
