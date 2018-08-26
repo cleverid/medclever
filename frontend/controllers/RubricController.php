@@ -12,7 +12,6 @@ namespace frontend\controllers;
 use common\models\Post;
 use common\models\Rubric;
 use yii\data\ActiveDataProvider;
-use yii\web\HttpException;
 
 class RubricController extends Controller {
 

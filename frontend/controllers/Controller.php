@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eugen
- * Date: 04.01.15
- * Time: 13:15
- */
-
 namespace frontend\controllers;
 
 use frontend\models\interfaces\ISEO;
@@ -72,7 +65,7 @@ class Controller extends \yii\web\Controller {
     }
 
     protected function pageNotFound() {
-        throw new HttpException(404, "Страница не найдена");
+        throw new \yii\web\HttpException(404, "Страница не найдена");
     }
 
 }
